@@ -5,7 +5,7 @@
       "displayName": "Processos",
       "singularName": "Processo",
       "pluralName": "Processos",
-      "description": "Processos gerenciados pela empresa",
+      "description": "Registro e acompanhamento de todos os processos jurídicos que a empresa está gerenciando, incluindo detalhes essenciais como o tipo de processo, cliente envolvido, área de atuação, e advogado responsável.",
       "icon": "file"
     },
     "attributes": {
@@ -19,14 +19,16 @@
           "Exemplo_2"
         ],
         "section": "Principal",
-        "width": "2/12"
+        "width": "2/12",
+        "help": "Selecione o tipo de processo (Judicial, Extrajudicial ou outro exemplo)."
       },
       "titulo": {
         "type": "inputText",
         "label": "Título",
         "validation": "required",
         "section": "Principal",
-        "width": "5/12"
+        "width": "5/12",
+        "help": "Insira o título do processo. Este campo é obrigatório e deve fornecer um resumo claro do processo."
       },
       "assunto": {
         "label": "Tipo de ação/assunto",
@@ -37,7 +39,8 @@
           "Ação de reintegração de posse"
         ],
         "section": "Principal",
-        "width": "5/12"
+        "width": "5/12",
+        "help": "Especifique o tipo de ação ou assunto relacionado ao processo."
       },
       "cliente": {
         "label": "Cliente",
@@ -45,7 +48,8 @@
         "relation": "oneToOne",
         "target": "models:clientes",
         "section": "Principal",
-        "width": "4/12"
+        "width": "4/12",
+        "help": "Selecione o cliente associado a este processo."
       },
       "qualificacao": {
         "label": "Qualificação",
@@ -57,7 +61,8 @@
           "Exemplo_3"
         ],
         "section": "Principal",
-        "width": "2/12"
+        "width": "2/12",
+        "help": "Escolha a qualificação aplicável ao processo. Este campo é obrigatório."
       },
       "numero_cnj": {
         "label": "Número (CNJ)",
@@ -70,7 +75,8 @@
           "#######-##.####.#.##.####"
         ],
         "section": "Principal",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Insira o número do processo conforme o formato CNJ. Este campo é único e obrigatório."
       },
       "area": {
         "label": "Área",
@@ -81,7 +87,8 @@
           "Família"
         ],
         "section": "Principal",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Selecione a área do direito à qual o processo pertence (ex: Cível, Trabalhista, Família)."
       },
       "n_pasta": {
         "label": "Nº Pasta",
@@ -92,7 +99,8 @@
           "autoIncrement"
         ],
         "section": "Principal",
-        "width": "6/12"
+        "width": "6/12",
+        "help": "Número da pasta onde o processo está arquivado. Este número é gerado automaticamente e deve ser único."
       },
       "advogado": {
         "label": "Advogado",
@@ -100,13 +108,15 @@
         "relation": "oneToOne",
         "target": "enspace:members",
         "section": "Principal",
-        "width": "6/12"
+        "width": "6/12",
+        "help": "Selecione o advogado responsável pelo processo."
       },
       "push_andamentos": {
         "label": "Push de andamentos",
         "type": "inputSwitch",
         "section": "Principal",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Ative ou desative notificações automáticas de andamentos para este processo."
       },
       "tribunal": {
         "label": "Tribunal / Orgão",
@@ -114,7 +124,8 @@
         "relation": "oneToOne",
         "target": "models:tribunais",
         "section": "Principal",
-        "width": "4/12"
+        "width": "4/12",
+        "help": "Selecione o tribunal ou órgão responsável pelo julgamento do processo."
       },
       "uf": {
         "label": "UF",
@@ -125,13 +136,15 @@
           "MG"
         ],
         "section": "Principal",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Escolha a unidade federativa (estado) onde o processo está tramitando."
       },
       "comarca": {
         "label": "Comarca",
         "type": "inputText",
         "section": "Principal",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Insira o nome da comarca onde o processo está localizado."
       },
       "instancia": {
         "label": "Instância",
@@ -142,13 +155,15 @@
           "3ª"
         ],
         "section": "Principal",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Selecione a instância judicial em que o processo está (1ª, 2ª, 3ª instância)."
       },
       "vara": {
         "label": "Vara / Turma",
         "type": "inputText",
         "section": "Principal",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Indique a vara ou turma responsável pelo processo."
       },
       "juiz": {
         "label": "Juiz",
@@ -156,7 +171,8 @@
         "relation": "oneToOne",
         "target": "models:juizes",
         "section": "Principal",
-        "width": "6/12"
+        "width": "6/12",
+        "help": "Selecione o juiz que está presidindo o processo."
       },
       "partes": {
         "label": "Partes",
@@ -164,7 +180,8 @@
         "relation": "oneToMany",
         "target": "models:partes",
         "section": "Partes",
-        "width": "12/12"
+        "width": "12/12",
+        "help": "Relaciona as partes envolvidas no processo (autor, réu, interessados, etc.)."
       },
       "andamentos": {
         "label": "Andamentos",
@@ -172,7 +189,8 @@
         "relation": "oneToMany",
         "target": "models:andamentos",
         "section": "Andamentos",
-        "width": "12/12"
+        "width": "12/12",
+        "help": "Acompanhe os andamentos processuais relacionados a este processo."
       },
       "publicacoes": {
         "label": "Publicações",
@@ -180,7 +198,8 @@
         "relation": "oneToMany",
         "target": "models:publicacoes",
         "section": "Publicações",
-        "width": "12/12"
+        "width": "12/12",
+        "help": "Gerencia as publicações oficiais ou comunicados vinculados ao processo."
       },
       "desdobramentos": {
         "label": "Desdobramentos",
@@ -188,7 +207,8 @@
         "relation": "oneToMany",
         "target": "models:processos",
         "section": "Desdobramentos",
-        "width": "12/12"
+        "width": "12/12",
+        "help": "Relaciona processos derivados ou desdobramentos deste processo."
       },
       "agenda": {
         "label": "Agenda",
@@ -196,7 +216,8 @@
         "relation": "oneToMany",
         "target": "models:agenda",
         "section": "Agenda",
-        "width": "12/12"
+        "width": "12/12",
+        "help": "Registre compromissos e eventos relacionados ao processo."
       },
       "ged": {
         "label": "GED",
@@ -204,7 +225,8 @@
         "relation": "oneToMany",
         "target": "models:ged",
         "section": "GED",
-        "width": "12/12"
+        "width": "12/12",
+        "help": "Gerencia a documentação eletrônica (GED) vinculada ao processo."
       }
     }
   },
@@ -214,22 +236,26 @@
       "displayName": "Clientes",
       "singularName": "Cliente",
       "pluralName": "Clientes",
-      "description": "Clientes da empresa",
+      "description": "Gerenciamento dos clientes da empresa, incluindo dados pessoais, tipo de cliente (físico ou jurídico), e informações de contato.",
       "icon": "people"
     },
     "attributes": {
       "nome": {
         "label": "Nome",
         "type": "inputText",
-        "validation": "required"
+        "validation": "required",
+        "help": "Insira o nome completo do cliente. Este campo é obrigatório."
       },
+
+
       "tipo": {
         "label": "Tipo",
         "type": "EnlDropdown",
         "options": [
           "Pessoa Física",
           "Pessoa Jurídica"
-        ]
+        ],
+        "help": "Selecione o tipo de cliente: Pessoa Física ou Jurídica."
       },
       "cpf_cnpj": {
         "label": "CPF / CNPJ",
@@ -238,12 +264,14 @@
         "masks": [
           "###.###.###-##",
           "##.###.###/####-##"
-        ]
+        ],
+        "help": "Insira o CPF (para pessoa física) ou CNPJ (para pessoa jurídica) do cliente. Este campo é obrigatório."
       },
       "email": {
         "label": "E-mail",
         "type": "inputText",
-        "validation": "email"
+        "validation": "email",
+        "help": "Insira o endereço de e-mail do cliente."
       },
       "telefone": {
         "label": "Telefone",
@@ -251,15 +279,18 @@
         "masks": [
           "(##) ####-####",
           "(##) #####-####"
-        ]
+        ],
+        "help": "Informe o número de telefone de contato do cliente."
       },
       "endereco": {
         "label": "Endereço",
-        "type": "inputText"
+        "type": "inputText",
+        "help": "Insira o endereço residencial ou comercial do cliente."
       },
       "cidade": {
         "label": "Cidade",
-        "type": "inputText"
+        "type": "inputText",
+        "help": "Informe a cidade onde o cliente reside ou está registrado."
       },
       "uf": {
         "label": "UF",
@@ -268,24 +299,28 @@
           "SP",
           "RJ",
           "MG"
-        ]
+        ],
+        "help": "Selecione a unidade federativa (estado) onde o cliente está localizado."
       },
       "cep": {
         "label": "CEP",
         "type": "inputText",
         "masks": [
           "#####-###"
-        ]
+        ],
+        "help": "Informe o código postal (CEP) do endereço do cliente."
       },
       "observacoes": {
         "label": "Observações",
-        "type": "inputText"
+        "type": "inputText",
+        "help": "Adicione observações adicionais sobre o cliente, se necessário."
       },
       "processos": {
         "label": "Processo",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "models:processos"
+        "target": "models:processos",
+        "help": "Liste os processos associados a este cliente."
       }
     }
   },
@@ -295,14 +330,15 @@
       "displayName": "Tribunais",
       "singularName": "Tribunal",
       "pluralName": "Tribunais",
-      "description": "Tribunais e órgãos judiciais",
+      "description": "Cadastro e gestão dos tribunais e órgãos judiciais relevantes aos processos jurídicos.",
       "icon": "account_balance"
     },
     "attributes": {
       "nome": {
         "label": "Nome",
         "type": "inputText",
-        "validation": "required"
+        "validation": "required",
+        "help": "Insira o nome completo do tribunal ou órgão judicial. Este campo é obrigatório."
       }
     }
   },
@@ -312,19 +348,21 @@
       "displayName": "Juízes",
       "singularName": "Juiz",
       "pluralName": "Juízes",
-      "description": "Juízes e magistrados",
+      "description": "Gerenciamento de juízes e magistrados que atuam nos processos.",
       "icon": "gavel"
     },
     "attributes": {
       "nome": {
         "label": "Nome",
         "type": "inputText",
-        "validation": "required"
+        "validation": "required",
+        "help": "Insira o nome completo do juiz ou magistrado. Este campo é obrigatório."
       },
       "email": {
         "label": "E-mail",
         "type": "inputText",
-        "validation": "email"
+        "validation": "email",
+        "help": "Informe o endereço de e-mail de contato do juiz."
       }
     }
   },
@@ -334,14 +372,15 @@
       "displayName": "Partes",
       "singularName": "Parte",
       "pluralName": "Partes",
-      "description": "Partes envolvidas nos processos",
+      "description": "Registro das partes envolvidas nos processos, como autores, réus, e terceiros.",
       "icon": "people"
     },
     "attributes": {
       "nome": {
         "label": "Nome",
         "type": "inputText",
-        "validation": "required"
+        "validation": "required",
+        "help": "Insira o nome completo da parte envolvida no processo. Este campo é obrigatório."
       },
       "tipo": {
         "label": "Tipo",
@@ -351,7 +390,8 @@
           "Réu",
           "Interessado",
           "Terceiro"
-        ]
+        ],
+        "help": "Especifique o papel da parte no processo (ex: Autor, Réu, Interessado)."
       },
       "cpf_cnpj": {
         "label": "CPF / CNPJ",
@@ -360,12 +400,14 @@
         "masks": [
           "###.###.###-##",
           "##.###.###/####-##"
-        ]
+        ],
+        "help": "Insira o CPF (para pessoa física) ou CNPJ (para pessoa jurídica) da parte. Este campo é obrigatório."
       },
       "email": {
         "label": "E-mail",
         "type": "inputText",
-        "validation": "email"
+        "validation": "email",
+        "help": "Informe o endereço de e-mail de contato da parte."
       },
       "telefone": {
         "label": "Telefone",
@@ -373,15 +415,18 @@
         "masks": [
           "(##) ####-####",
           "(##) #####-####"
-        ]
+        ],
+        "help": "Informe o número de telefone de contato da parte."
       },
       "endereco": {
         "label": "Endereço",
-        "type": "inputText"
+        "type": "inputText",
+        "help": "Informe o endereço residencial ou comercial da parte."
       },
       "cidade": {
         "label": "Cidade",
-        "type": "inputText"
+        "type": "inputText",
+        "help": "Informe a cidade onde a parte reside ou está registrada."
       },
       "uf": {
         "label": "UF",
@@ -390,24 +435,28 @@
           "SP",
           "RJ",
           "MG"
-        ]
+        ],
+        "help": "Selecione a unidade federativa (estado) onde a parte está localizada."
       },
       "cep": {
         "label": "CEP",
         "type": "inputText",
         "masks": [
           "#####-###"
-        ]
+        ],
+        "help": "Informe o código postal (CEP) do endereço da parte."
       },
       "observacoes": {
         "label": "Observações",
-        "type": "inputText"
+        "type": "inputText",
+        "help": "Adicione observações adicionais sobre a parte, se necessário."
       },
       "processos": {
         "label": "Processo",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "models:processos"
+        "target": "models:processos",
+        "help": "Liste os processos associados a esta parte."
       }
     }
   },
@@ -417,25 +466,28 @@
       "displayName": "Andamentos",
       "singularName": "Andamento",
       "pluralName": "Andamentos",
-      "description": "Andamentos processuais",
+      "description": "Registro dos andamentos processuais, incluindo datas e descrições dos eventos ocorridos.",
       "icon": "assignment"
     },
     "attributes": {
       "data": {
         "label": "Data",
         "type": "EnlCalendar",
-        "validation": "required"
+        "validation": "required",
+        "help": "Informe a data em que o andamento foi registrado. Este campo é obrigatório."
       },
       "descricao": {
         "label": "Descrição",
         "type": "inputText",
-        "validation": "required"
+        "validation": "required",
+        "help": "Descreva o andamento processual de forma clara e concisa. Este campo é obrigatório."
       },
       "processo": {
         "label": "Processo",
         "type": "EnRel",
         "relation": "oneToOne",
-        "target": "models:processos"
+        "target": "models:processos",
+        "help": "Selecione o processo ao qual este andamento está relacionado."
       }
     }
   },
@@ -445,7 +497,7 @@
       "displayName": "Publicações",
       "singularName": "Publicação",
       "pluralName": "Publicações",
-      "description": "Publicações processuais",
+      "description": "Gerenciamento das publicações oficiais e comunicados relacionados aos processos.",
       "icon": "description"
     },
     "attributes": {
@@ -455,23 +507,29 @@
         "options": [
           "Pendente",
           "Visualizado"
-        ]
+        ],
+        "help": "Indique o status da publicação: Pendente ou Visualizado."
       },
       "data": {
         "label": "Data",
         "type": "EnlCalendar",
-        "validation": "required"
+        "validation": "required",
+        "help": "Informe a data em que a publicação foi realizada. Este campo é obrigatório."
       },
       "descricao": {
         "label": "Descrição",
         "type": "inputText",
-        "validation": "required"
+        "validation": "required",
+        "help": "Descreva o conteúdo da publicação. Este campo é obrigatório."
       },
-      "processo": {
+      "processo":
+
+ {
         "label": "Processo",
         "type": "EnRel",
         "relation": "oneToOne",
-        "target": "models:processos"
+        "target": "models:processos",
+        "help": "Selecione o processo ao qual esta publicação está relacionada."
       }
     }
   },
@@ -481,7 +539,7 @@
       "displayName": "Agenda",
       "singularName": "Agenda",
       "pluralName": "Agenda",
-      "description": "Agenda e agendamentos",
+      "description": "Gerenciamento de eventos e compromissos relacionados aos processos e atividades da empresa.",
       "icon": "event"
     },
     "attributes": {
@@ -489,7 +547,8 @@
         "label": "Cliente",
         "type": "EnRel",
         "relation": "oneToOne",
-        "target": "models:clientes"
+        "target": "models:clientes",
+        "help": "Selecione o cliente associado ao evento agendado."
       },
       "tipo_evento": {
         "label": "Tipo de evento",
@@ -512,7 +571,8 @@
           "Solicitar Demanda",
           "Tarefa",
           "Viagem"
-        ]
+        ],
+        "help": "Selecione o tipo de evento a ser agendado."
       },
       "workflow": {
         "label": "Workflow",
@@ -524,7 +584,8 @@
           "Prazo",
           "Outro",
           "Tarefa"
-        ]
+        ],
+        "help": "Especifique o workflow relacionado ao evento."
       },
       "status": {
         "label": "Status",
@@ -533,52 +594,60 @@
           "Aberto",
           "Concluída",
           "Cancelada"
-        ]
+        ],
+        "help": "Indique o status atual do evento (Aberto, Concluído, Cancelado)."
       },
       "responsaveis": {
         "label": "Responsáveis",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "enspace:members"
+        "target": "enspace:members",
+        "help": "Selecione os membros responsáveis pelo evento."
       },
       "data_interna": {
         "label": "Interna",
-        "type": "EnlCalendar"
+        "type": "EnlCalendar",
+        "help": "Informe a data interna para controle do evento."
       },
       "data_fatal": {
         "label": "Fatal",
-        "type": "EnlCalendar"
+        "type": "EnlCalendar",
+        "help": "Informe a data fatal para a conclusão do evento."
       },
       "data_conclusao": {
         "label": "Conclusão",
-        "type": "EnlCalendar"
+        "type": "EnlCalendar",
+        "help": "Informe a data de conclusão do evento."
       },
       "timesheet": {
         "label": "Timesheet",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "models:timesheet"
+        "target": "models:timesheet",
+        "help": "Registre as horas trabalhadas relacionadas a este evento."
       },
       "processo": {
         "label": "Processo",
         "type": "EnRel",
         "relation": "oneToOne",
-        "target": "models:processos"
+        "target": "models:processos",
+        "help": "Selecione o processo relacionado a este evento."
       },
       "projeto": {
         "label": "Projeto",
         "type": "EnRel",
         "relation": "oneToOne",
-        "target": "models:projetos"
+        "target": "models:projetos",
+        "help": "Selecione o projeto associado ao evento agendado."
       },
       "descricao": {
         "label": "Descrição",
         "type": "EnHtml",
         "validation": "required",
-        "width": "12/12"
+        "width": "12/12",
+        "help": "Descreva detalhadamente o evento ou compromisso agendado."
       }
     }
-    
   },
   {
     "name": "timesheet",
@@ -586,35 +655,40 @@
       "displayName": "Timesheet",
       "singularName": "Timesheet",
       "pluralName": "Timesheet",
-      "description": "Registro de horas trabalhadas",
+      "description": "Registro detalhado das horas trabalhadas em eventos, projetos e processos.",
       "icon": "schedule"
     },
     "attributes": {
       "data": {
         "label": "Data",
         "type": "EnlCalendar",
-        "validation": "required"
+        "validation": "required",
+        "help": "Informe a data em que as horas foram registradas. Este campo é obrigatório."
       },
       "hora_inicio": {
         "label": "Hora Início",
         "type": "EnlCalendar",
-        "validation": "required"
+        "validation": "required",
+        "help": "Informe a hora de início do trabalho realizado. Este campo é obrigatório."
       },
       "hora_fim": {
         "label": "Hora Fim",
         "type": "EnlCalendar",
-        "validation": "required"
+        "validation": "required",
+        "help": "Informe a hora de término do trabalho realizado. Este campo é obrigatório."
       },
       "descricao": {
         "label": "Descrição",
         "type": "inputText",
-        "validation": "required"
+        "validation": "required",
+        "help": "Descreva a atividade realizada durante as horas registradas. Este campo é obrigatório."
       },
       "agenda": {
         "label": "Agenda",
         "type": "EnRel",
         "relation": "oneToOne",
-        "target": "models:agenda"
+        "target": "models:agenda",
+        "help": "Relacione esta entrada de timesheet com o evento na agenda correspondente."
       }
     }
   },
@@ -624,7 +698,7 @@
       "displayName": "Projetos",
       "singularName": "Projeto",
       "pluralName": "Projetos",
-      "description": "Projetos e atividades",
+      "description": "Gerenciamento de projetos e atividades relacionados a clientes, incluindo status, datas e responsabilidades.",
       "icon": "work"
     },
     "attributes": {
@@ -632,31 +706,36 @@
         "label": "Titulo do Projeto",
         "type": "inputText",
         "validation": "required",
-        "width": "4/12"
+        "width": "4/12",
+        "help": "Insira o título do projeto. Este campo é obrigatório."
       },
       "n_pasta": {
         "label": "Nº da Pasta",
         "type": "inputText",
-        "width": "2/12"
+        "width": "2/12",
+        "help": "Informe o número da pasta onde o projeto está arquivado."
       },
       "detalhes_pasta": {
         "label": "Detalhes da Pasta",
         "type": "inputText",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Adicione detalhes específicos sobre a pasta do projeto."
       },
       "cliente": {
         "label": "Cliente",
         "type": "EnRel",
         "relation": "oneToOne",
         "target": "models:clientes",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Selecione o cliente associado a este projeto."
       },
       "responsaveis": {
         "label": "Responsáveis",
         "type": "EnRelMulti",
         "relation": "oneToMany",
         "target": "enspace:members",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Liste os membros responsáveis pela execução do projeto."
       },
       "status": {
         "label": "Status/Fase",
@@ -668,62 +747,75 @@
           "Concluído"
         ],
         "startValue": "Aberto",
-        "width": "3/12"
+        "width": "3/12",
+        "help": "Selecione o status atual ou fase em que o projeto se encontra."
       },
       "data_inicio": {
         "label": "Data Início",
         "type": "EnlCalendar",
         "validation": "required",
-        "width": "2/12"
+        "width": "2/12",
+        "help": "Informe a data de início do projeto. Este campo é obrigatório."
       },
       "data_prevista": {
         "label": "Data Prevista",
         "type": "EnlCalendar",
-        "width": "2/12"
+        "width": "2/12",
+        "help": "Informe a data prevista para a conclusão do projeto."
       },
       "data_conclusao": {
         "label": "Finalizado em",
         "type": "EnlCalendar",
-        "width": "2/12"
+        "width": "2/12",
+        "help": "Informe a data em que o projeto foi concluído."
       },
       "contrato": {
         "label": "Contrato",
         "type": "EnRel",
         "relation": "oneToOne",
         "target": "models:contratos",
-        "width": "4/12"
+        "width": "4/12",
+        "help": "Relacione este projeto com o contrato correspondente."
       },
       "arquivar_projeto": {
         "label": "Arquivar projeto",
         "type": "inputSwitch",
-        "width": "2/12"
+        "width": "2/12",
+        "help": "Ative esta opção se o projeto já estiver concluído e precisa ser arquivado."
       },
       "observacoes": {
         "label": "Observações sobre o projeto",
         "type": "EnHtml",
-        "width": "12/12"
+        "width": "12/12",
+        "help": "Adicione observações adicionais ou detalhes sobre o projeto."
+
+
       },
       "agenda": {
         "label": "Agenda",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "models:agenda"
+        "target": "models:agenda",
+        "help": "Registre eventos e compromissos relacionados a este projeto."
       },
       "andamentos": {
         "label": "Andamentos",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "models:andamentos"
+        "target": "models:andamentos",
+        "help": "Registre os andamentos e atualizações relacionadas ao projeto."
       },
       "mensagens": {
         "label": "Mensagens",
-        "type": "EnNotes"
+        "type": "EnNotes",
+        "help": "Adicione mensagens ou notas relacionadas ao projeto."
       },
       "ged": {
         "label": "GED",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "models:ged"
+        "target": "models:ged",
+        "help": "Gerencie a documentação eletrônica (GED) associada ao projeto."
       }
     }
   },
@@ -733,29 +825,33 @@
       "displayName": "GED",
       "singularName": "GED",
       "pluralName": "GED",
-      "description": "Gestão eletrônica de documentos",
+      "description": "Gestão Eletrônica de Documentos (GED), permitindo o armazenamento e organização de documentos relacionados aos processos e projetos.",
       "icon": "folder"
     },
     "attributes": {
       "nome": {
         "label": "Nome",
         "type": "inputText",
-        "validation": "required"
+        "validation": "required",
+        "help": "Insira o nome do documento a ser armazenado. Este campo é obrigatório."
       },
       "descricao": {
         "label": "Descrição",
-        "type": "inputText"
+        "type": "inputText",
+        "help": "Adicione uma descrição breve sobre o documento."
       },
       "documento": {
         "label": "Documento",
         "type": "EnlFile",
-        "validation": "required"
+        "validation": "required",
+        "help": "Carregue o arquivo do documento. Este campo é obrigatório."
       },
       "processo": {
         "label": "Processo",
         "type": "EnRel",
         "relation": "oneToOne",
-        "target": "models:processos"
+        "target": "models:processos",
+        "help": "Relacione este documento com o processo correspondente."
       }
     }
   },
@@ -765,14 +861,15 @@
       "displayName": "Contratos",
       "singularName": "Contrato",
       "pluralName": "Contratos",
-      "description": "Contratos e acordos",
+      "description": "Gerenciamento de contratos e acordos feitos com clientes, incluindo status, documentos relacionados e responsabilidades.",
       "icon": "description"
     },
     "attributes": {
       "nome": {
         "label": "Nome",
         "type": "inputText",
-        "validation": "required"
+        "validation": "required",
+        "help": "Insira o nome do contrato. Este campo é obrigatório."
       },
       "status": {
         "label": "Status",
@@ -781,35 +878,41 @@
           "Ativo",
           "Concluído",
           "Cancelado"
-        ]
+        ],
+        "help": "Selecione o status atual do contrato."
       },
       "descricao": {
         "label": "Descrição",
-        "type": "inputText"
+        "type": "inputText",
+        "help": "Adicione uma descrição breve sobre o contrato."
       },
       "cliente": {
         "label": "Cliente",
         "type": "EnRel",
         "relation": "oneToOne",
-        "target": "models:clientes"
+        "target": "models:clientes",
+        "help": "Selecione o cliente relacionado a este contrato."
       },
       "responsaveis": {
         "label": "Responsáveis",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "enspace:members"
+        "target": "enspace:members",
+        "help": "Lista dos membros responsáveis por este contrato."
       },
       "agenda": {
         "label": "Agenda",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "models:agenda"
+        "target": "models:agenda",
+        "help": "Registre eventos e compromissos relacionados a este contrato."
       },
       "ged": {
         "label": "GED",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "models:ged"
+        "target": "models:ged",
+        "help": "Gerencie a documentação eletrônica (GED) associada a este contrato."
       }
     }
   }
