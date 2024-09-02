@@ -1,0 +1,270 @@
+[
+  {
+    "name": "reservas",
+    "info": {
+      "displayName": "Reservas",
+      "singularName": "Reserva",
+      "pluralName": "Reservas",
+      "description": "Gerenciamento das reservas dos hóspedes, incluindo informações sobre datas de check-in e check-out, tipo de quarto, e status da reserva.",
+      "icon": "mdi:calendar-check"
+    },
+    "attributes": {
+      "hospede": {
+        "label": "Hóspede",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:hospedes",
+        "help": "Selecione o hóspede que realizou a reserva."
+      },
+      "quarto": {
+        "label": "Quarto",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:quartos",
+        "help": "Selecione o quarto reservado."
+      },
+      "data_checkin": {
+        "label": "Data de Check-In",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Informe a data de check-in do hóspede. Este campo é obrigatório."
+      },
+      "data_checkout": {
+        "label": "Data de Check-Out",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Informe a data de check-out do hóspede. Este campo é obrigatório."
+      },
+      "status_reserva": {
+        "label": "Status da Reserva",
+        "type": "EnlDropdown",
+        "options": [
+          "Confirmada",
+          "Pendente",
+          "Cancelada"
+        ],
+        "help": "Indique o status atual da reserva."
+      },
+      "total_pagamento": {
+        "label": "Total do Pagamento",
+        "type": "EnlNumber",
+        "validation": "required",
+        "help": "Informe o valor total a ser pago pela reserva. Este campo é obrigatório."
+      }
+    }
+  },
+  {
+    "name": "hospedes",
+    "info": {
+      "displayName": "Hóspedes",
+      "singularName": "Hóspede",
+      "pluralName": "Hóspedes",
+      "description": "Cadastro dos hóspedes do hotel, incluindo informações pessoais, contatos e histórico de reservas.",
+      "icon": "mdi:account"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome Completo",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Informe o nome completo do hóspede. Este campo é obrigatório."
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email",
+        "help": "Informe o endereço de e-mail do hóspede."
+      },
+      "telefone": {
+        "label": "Telefone",
+        "type": "inputText",
+        "masks": [
+          "(##) #####-####"
+        ],
+        "help": "Informe o número de telefone do hóspede."
+      },
+      "documento": {
+        "label": "Documento de Identidade",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Informe o número do documento de identidade do hóspede. Este campo é obrigatório."
+      },
+      "historico_reservas": {
+        "label": "Histórico de Reservas",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:reservas",
+        "help": "Registre todas as reservas anteriores do hóspede."
+      }
+    }
+  },
+  {
+    "name": "quartos",
+    "info": {
+      "displayName": "Quartos",
+      "singularName": "Quarto",
+      "pluralName": "Quartos",
+      "description": "Gerenciamento dos quartos do hotel, incluindo o tipo de quarto, capacidade, disponibilidade e preço.",
+      "icon": "mdi:bed"
+    },
+    "attributes": {
+      "numero_quarto": {
+        "label": "Número do Quarto",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Informe o número do quarto. Este campo é obrigatório."
+      },
+      "tipo_quarto": {
+        "label": "Tipo de Quarto",
+        "type": "EnlDropdown",
+        "options": [
+          "Individual",
+          "Duplo",
+          "Suíte"
+        ],
+        "help": "Selecione o tipo de quarto."
+      },
+      "capacidade": {
+        "label": "Capacidade",
+        "type": "EnlNumber",
+        "validation": "required",
+        "help": "Informe a capacidade máxima do quarto em número de hóspedes."
+      },
+      "preco_diaria": {
+        "label": "Preço da Diária",
+        "type": "EnlNumber",
+        "validation": "required",
+        "help": "Informe o preço da diária para o quarto. Este campo é obrigatório."
+      },
+      "disponibilidade": {
+        "label": "Disponibilidade",
+        "type": "inputSwitch",
+        "help": "Indique se o quarto está disponível para reserva."
+      }
+    }
+  },
+  {
+    "name": "servicos_adicionais",
+    "info": {
+      "displayName": "Serviços Adicionais",
+      "singularName": "Serviço Adicional",
+      "pluralName": "Serviços Adicionais",
+      "description": "Gerenciamento dos serviços adicionais oferecidos pelo hotel, como serviço de quarto, lavanderia, e transporte.",
+      "icon": "mdi:room-service-outline"
+    },
+    "attributes": {
+      "nome_servico": {
+        "label": "Nome do Serviço",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Informe o nome do serviço adicional. Este campo é obrigatório."
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "inputText",
+        "help": "Forneça uma descrição detalhada do serviço adicional."
+      },
+      "preco": {
+        "label": "Preço",
+        "type": "EnlNumber",
+        "validation": "required",
+        "help": "Informe o preço do serviço adicional. Este campo é obrigatório."
+      }
+    }
+  },
+  {
+    "name": "funcionarios",
+    "info": {
+      "displayName": "Funcionários",
+      "singularName": "Funcionário",
+      "pluralName": "Funcionários",
+      "description": "Gerenciamento dos funcionários do hotel, incluindo cargos, horários de trabalho e informações de contato.",
+      "icon": "mdi:account-tie"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome Completo",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Informe o nome completo do funcionário. Este campo é obrigatório."
+      },
+      "cargo": {
+        "label": "Cargo",
+        "type": "EnlDropdown",
+        "options": [
+          "Recepcionista",
+          "Gerente",
+          "Camareira",
+          "Cozinheiro"
+        ],
+        "help": "Selecione o cargo do funcionário."
+      },
+      "telefone": {
+        "label": "Telefone",
+        "type": "inputText",
+        "masks": [
+          "(##) #####-####"
+        ],
+        "help": "Informe o número de telefone do funcionário."
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email",
+        "help": "Informe o endereço de e-mail do funcionário."
+      },
+      "horarios_trabalho": {
+        "label": "Horários de Trabalho",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:horarios_trabalho",
+        "help": "Registre os horários de trabalho do funcionário."
+      }
+    }
+  },
+  {
+    "name": "horarios_trabalho",
+    "info": {
+      "displayName": "Horários de Trabalho",
+      "singularName": "Horário de Trabalho",
+      "pluralName": "Horários de Trabalho",
+      "description": "Registro dos horários de trabalho dos funcionários, incluindo dias da semana e horários específicos.",
+      "icon": "mdi:calendar-clock"
+    },
+    "attributes": {
+      "dia_semana": {
+        "label": "Dia da Semana",
+        "type": "EnlDropdown",
+        "options": [
+          "Segunda-feira",
+          "Terça-feira",
+          "Quarta-feira",
+          "Quinta-feira",
+          "Sexta-feira",
+          "Sábado",
+          "Domingo"
+        ],
+        "help": "Selecione o dia da semana referente ao horário de trabalho."
+      },
+      "hora_inicio": {
+        "label": "Hora de Início",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Informe a hora de início do trabalho. Este campo é obrigatório."
+      },
+      "hora_fim": {
+        "label": "Hora de Término",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Informe a hora de término do trabalho. Este campo é obrigatório."
+      },
+      "funcionario": {
+        "label": "Funcionário",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:funcionarios",
+        "help": "Selecione o funcionário relacionado a este horário de trabalho."
+      }
+    }
+  }
+]
