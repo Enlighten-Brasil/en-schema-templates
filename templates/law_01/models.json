@@ -6,7 +6,7 @@
       "singularName": "Processo",
       "pluralName": "Processos",
       "description": "Registro e acompanhamento de todos os processos jurídicos que a empresa está gerenciando, incluindo detalhes essenciais como o tipo de processo, cliente envolvido, área de atuação, e advogado responsável.",
-      "icon": "file"
+      "icon": "hugeicons:court-law"
     },
     "attributes": {
       "tipo": {
@@ -237,7 +237,7 @@
       "singularName": "Cliente",
       "pluralName": "Clientes",
       "description": "Gerenciamento dos clientes da empresa, incluindo dados pessoais, tipo de cliente (físico ou jurídico), e informações de contato.",
-      "icon": "people"
+      "icon": "carbon:customer"
     },
     "attributes": {
       "nome": {
@@ -331,7 +331,7 @@
       "singularName": "Tribunal",
       "pluralName": "Tribunais",
       "description": "Cadastro e gestão dos tribunais e órgãos judiciais relevantes aos processos jurídicos.",
-      "icon": "account_balance"
+      "icon": "octicon:law"
     },
     "attributes": {
       "nome": {
@@ -349,7 +349,7 @@
       "singularName": "Juiz",
       "pluralName": "Juízes",
       "description": "Gerenciamento de juízes e magistrados que atuam nos processos.",
-      "icon": "gavel"
+      "icon": "hugeicons:judge"
     },
     "attributes": {
       "nome": {
@@ -373,7 +373,7 @@
       "singularName": "Parte",
       "pluralName": "Partes",
       "description": "Registro das partes envolvidas nos processos, como autores, réus, e terceiros.",
-      "icon": "people"
+      "icon": "ion:ios-people"
     },
     "attributes": {
       "nome": {
@@ -467,7 +467,7 @@
       "singularName": "Andamento",
       "pluralName": "Andamentos",
       "description": "Registro dos andamentos processuais, incluindo datas e descrições dos eventos ocorridos.",
-      "icon": "assignment"
+      "icon": "uil:files-landscapes-alt"
     },
     "attributes": {
       "data": {
@@ -498,7 +498,7 @@
       "singularName": "Publicação",
       "pluralName": "Publicações",
       "description": "Gerenciamento das publicações oficiais e comunicados relacionados aos processos.",
-      "icon": "description"
+      "icon": "heroicons:newspaper"
     },
     "attributes": {
       "status": {
@@ -540,7 +540,7 @@
       "singularName": "Agenda",
       "pluralName": "Agenda",
       "description": "Gerenciamento de eventos e compromissos relacionados aos processos e atividades da empresa.",
-      "icon": "event"
+      "icon": "fluent:tasks-app-20-filled"
     },
     "attributes": {
       "cliente": {
@@ -656,7 +656,7 @@
       "singularName": "Timesheet",
       "pluralName": "Timesheet",
       "description": "Registro detalhado das horas trabalhadas em eventos, projetos e processos.",
-      "icon": "schedule"
+      "icon": "material-symbols:avg-time"
     },
     "attributes": {
       "data": {
@@ -699,7 +699,7 @@
       "singularName": "Projeto",
       "pluralName": "Projetos",
       "description": "Gerenciamento de projetos e atividades relacionados a clientes, incluindo status, datas e responsabilidades.",
-      "icon": "work"
+      "icon": "octicon:project"
     },
     "attributes": {
       "nome": {
@@ -826,7 +826,7 @@
       "singularName": "GED",
       "pluralName": "GED",
       "description": "Gestão Eletrônica de Documentos (GED), permitindo o armazenamento e organização de documentos relacionados aos processos e projetos.",
-      "icon": "folder"
+      "icon": "game-icons:files"
     },
     "attributes": {
       "nome": {
@@ -862,7 +862,7 @@
       "singularName": "Contrato",
       "pluralName": "Contratos",
       "description": "Gerenciamento de contratos e acordos feitos com clientes, incluindo status, documentos relacionados e responsabilidades.",
-      "icon": "description"
+      "icon": "clarity:contract-line"
     },
     "attributes": {
       "nome": {
