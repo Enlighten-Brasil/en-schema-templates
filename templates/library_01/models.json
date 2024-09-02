@@ -1,0 +1,292 @@
+[
+  {
+     "name":"livros",
+     "info":{
+        "displayName":"Livros",
+        "singularName":"Livro",
+        "pluralName":"Livros",
+        "description":"Gerenciamento de livros disponíveis na livraria ou biblioteca, incluindo detalhes sobre o título, autor, categoria, e disponibilidade.",
+        "icon":"mdi:book-open-page-variant"
+     },
+     "attributes":{
+        "titulo":{
+           "label":"Título",
+           "type":"inputText",
+           "validation":"required",
+           "help":"Insira o título completo do livro. Este campo é obrigatório."
+        },
+        "autor":{
+           "label":"Autor",
+           "type":"inputText",
+           "validation":"required",
+           "help":"Informe o nome do autor do livro. Este campo é obrigatório."
+        },
+        "categoria":{
+           "label":"Categoria",
+           "type":"EnlDropdown",
+           "options":[
+              "Ficção",
+              "Não Ficção",
+              "Técnico",
+              "Acadêmico",
+              "Infantil",
+              "Outro"
+           ],
+           "help":"Selecione a categoria do livro (Ficção, Não Ficção, Técnico, etc.)."
+        },
+        "isbn":{
+           "label":"ISBN",
+           "type":"inputText",
+           "validation":"required",
+           "masks":[
+              "###-#-##-######-#"
+           ],
+           "help":"Insira o número ISBN do livro. Este campo é obrigatório e deve seguir o formato padrão."
+        },
+        "editora":{
+           "label":"Editora",
+           "type":"inputText",
+           "help":"Informe o nome da editora responsável pela publicação do livro."
+        },
+        "ano_publicacao":{
+           "label":"Ano de Publicação",
+           "type":"inputText",
+           "validation":"required",
+           "help":"Informe o ano de publicação do livro. Este campo é obrigatório."
+        },
+        "edicao":{
+           "label":"Edição",
+           "type":"inputText",
+           "help":"Informe a edição do livro, se aplicável."
+        },
+        "numero_paginas":{
+           "label":"Número de Páginas",
+           "type":"inputText",
+           "help":"Informe o número total de páginas do livro."
+        },
+        "idioma":{
+           "label":"Idioma",
+           "type":"EnlDropdown",
+           "options":[
+              "Português",
+              "Inglês",
+              "Espanhol",
+              "Outro"
+           ],
+           "help":"Selecione o idioma em que o livro está escrito."
+        },
+        "disponivel":{
+           "label":"Disponível",
+           "type":"inputSwitch",
+           "help":"Indique se o livro está disponível para empréstimo ou venda."
+        },
+        "localizacao":{
+           "label":"Localização",
+           "type":"inputText",
+           "help":"Informe a localização do livro dentro da livraria ou biblioteca (ex: seção, prateleira)."
+        },
+        "descricao":{
+           "label":"Descrição",
+           "type":"EnHtml",
+           "help":"Adicione uma breve descrição ou sinopse do livro."
+        }
+     }
+  },
+  {
+     "name":"membros",
+     "info":{
+        "displayName":"Membros",
+        "singularName":"Membro",
+        "pluralName":"Membros",
+        "description":"Gerenciamento dos membros ou clientes da livraria ou biblioteca, incluindo informações pessoais e de contato.",
+        "icon":"mdi:account-multiple"
+     },
+     "attributes":{
+        "nome":{
+           "label":"Nome",
+           "type":"inputText",
+           "validation":"required",
+           "help":"Insira o nome completo do membro ou cliente. Este campo é obrigatório."
+        },
+        "cpf":{
+           "label":"CPF",
+           "type":"inputText",
+           "validation":"required",
+           "masks":[
+              "###.###.###-##"
+           ],
+           "help":"Informe o CPF do membro. Este campo é obrigatório e deve seguir o formato padrão."
+        },
+        "email":{
+           "label":"E-mail",
+           "type":"inputText",
+           "validation":"email",
+           "help":"Informe o endereço de e-mail do membro para contato."
+        },
+        "telefone":{
+           "label":"Telefone",
+           "type":"inputText",
+           "masks":[
+              "(##) ####-####",
+              "(##) #####-####"
+           ],
+           "help":"Informe o número de telefone do membro para contato."
+        },
+        "endereco":{
+           "label":"Endereço",
+           "type":"inputText",
+           "help":"Insira o endereço completo do membro."
+        },
+        "data_cadastro":{
+           "label":"Data de Cadastro",
+           "type":"EnlCalendar",
+           "validation":"required",
+           "help":"Informe a data de cadastro do membro na livraria ou biblioteca."
+        },
+        "status":{
+           "label":"Status",
+           "type":"EnlDropdown",
+           "options":[
+              "Ativo",
+              "Inativo"
+           ],
+           "help":"Indique o status atual do membro (Ativo ou Inativo)."
+        }
+     }
+  },
+  {
+     "name":"emprestimos",
+     "info":{
+        "displayName":"Empréstimos",
+        "singularName":"Empréstimo",
+        "pluralName":"Empréstimos",
+        "description":"Gerenciamento dos empréstimos de livros realizados pela livraria ou biblioteca, incluindo datas de empréstimo e devolução.",
+        "icon":"mdi:book-check"
+     },
+     "attributes":{
+        "livro":{
+           "label":"Livro",
+           "type":"EnRel",
+           "relation":"oneToOne",
+           "target":"models:livros",
+           "validation":"required",
+           "help":"Selecione o livro que está sendo emprestado. Este campo é obrigatório."
+        },
+        "membro":{
+           "label":"Membro",
+           "type":"EnRel",
+           "relation":"oneToOne",
+           "target":"models:membros",
+           "validation":"required",
+           "help":"Selecione o membro que está realizando o empréstimo. Este campo é obrigatório."
+        },
+        "data_emprestimo":{
+           "label":"Data de Empréstimo",
+           "type":"EnlCalendar",
+           "validation":"required",
+           "help":"Informe a data em que o livro foi emprestado. Este campo é obrigatório."
+        },
+        "data_devolucao_prevista":{
+           "label":"Data de Devolução Prevista",
+           "type":"EnlCalendar",
+           "validation":"required",
+           "help":"Informe a data prevista para a devolução do livro. Este campo é obrigatório."
+        },
+        "data_devolucao_real":{
+           "label":"Data de Devolução Real",
+           "type":"EnlCalendar",
+           "help":"Informe a data em que o livro foi realmente devolvido."
+        },
+        "status":{
+           "label":"Status",
+           "type":"EnlDropdown",
+           "options":[
+              "Em andamento",
+              "Devolvido",
+              "Atrasado"
+           ],
+           "help":"Indique o status atual do empréstimo (Em andamento, Devolvido, Atrasado)."
+        },
+        "observacoes":{
+           "label":"Observações",
+           "type":"inputText",
+           "help":"Adicione observações adicionais sobre o empréstimo, se necessário."
+        }
+     }
+  },
+  {
+     "name":"categorias",
+     "info":{
+        "displayName":"Categorias",
+        "singularName":"Categoria",
+        "pluralName":"Categorias",
+        "description":"Gerenciamento das categorias dos livros, permitindo uma organização clara e eficiente.",
+        "icon":"mdi:label-outline"
+     },
+     "attributes":{
+        "nome":{
+           "label":"Nome",
+           "type":"inputText",
+           "validation":"required",
+           "help":"Insira o nome da categoria. Este campo é obrigatório."
+        },
+        "descricao":{
+           "label":"Descrição",
+           "type":"inputText",
+           "help":"Adicione uma descrição breve sobre a categoria."
+        }
+     }
+  },
+  {
+     "name":"fornecedores",
+     "info":{
+        "displayName":"Fornecedores",
+        "singularName":"Fornecedor",
+        "pluralName":"Fornecedores",
+        "description":"Gerenciamento dos fornecedores de livros e outros materiais para a livraria ou biblioteca.",
+        "icon":"mdi:truck-delivery"
+     },
+     "attributes":{
+        "nome":{
+           "label":"Nome",
+           "type":"inputText",
+           "validation":"required",
+           "help":"Insira o nome do fornecedor. Este campo é obrigatório."
+        },
+        "cnpj":{
+           "label":"CNPJ",
+           "type":"inputText",
+           "validation":"required",
+           "masks":[
+              "##.###.###/####-##"
+           ],
+           "help":"Informe o CNPJ do fornecedor. Este campo é obrigatório."
+        },
+        "telefone":{
+           "label":"Telefone",
+           "type":"inputText",
+           "masks":[
+              "(##) ####-####",
+              "(##) #####-####"
+           ],
+           "help":"Informe o número de telefone do fornecedor para contato."
+        },
+        "email":{
+           "label":"E-mail",
+           "type":"inputText",
+           "validation":"email",
+           "help":"Informe o endereço de e-mail do fornecedor para contato."
+        },
+        "endereco":{
+           "label":"Endereço",
+           "type":"inputText",
+           "help":"Insira o endereço completo do fornecedor."
+        },
+        "descricao":{
+           "label":"Descrição",
+           "type":"EnHtml",
+           "help":"Adicione uma descrição ou observações adicionais sobre o fornecedor."
+        }
+     }
+  }
+]
