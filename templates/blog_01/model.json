@@ -1,0 +1,180 @@
+[
+  {
+    "name": "postagens",
+    "info": {
+      "displayName": "Postagens",
+      "singularName": "Postagem",
+      "pluralName": "Postagens",
+      "description": "Gerenciamento das postagens publicadas no blog, incluindo título, conteúdo, autor, data de publicação e categorias.",
+      "icon": "bi:card-text"
+    },
+    "attributes": {
+      "titulo": {
+        "label": "Título",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Título da postagem, que será exibido na página principal e nos resultados de busca."
+      },
+      "conteudo": {
+        "label": "Conteúdo",
+        "type": "EnHtml",
+        "validation": "required",
+        "help": "O corpo principal da postagem, onde o conteúdo completo é inserido."
+      },
+      "autor": {
+        "label": "Autor",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:autores",
+        "validation": "required",
+        "help": "O autor responsável por criar a postagem."
+      },
+      "data_publicacao": {
+        "label": "Data de Publicação",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Data em que a postagem será ou foi publicada."
+      },
+      "status": {
+        "label": "Status",
+        "type": "EnlDropdown",
+        "options": ["Rascunho", "Publicado", "Arquivado"],
+        "help": "O status atual da postagem, indicando se está em rascunho, publicada ou arquivada."
+      },
+      "categorias": {
+        "label": "Categorias",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:categorias",
+        "help": "As categorias às quais a postagem pertence."
+      },
+      "comentarios": {
+        "label": "Comentários",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:comentarios",
+        "help": "Comentários deixados por leitores na postagem."
+      }
+    }
+  },
+  {
+    "name": "autores",
+    "info": {
+      "displayName": "Autores",
+      "singularName": "Autor",
+      "pluralName": "Autores",
+      "description": "Gerenciamento dos autores que escrevem as postagens do blog, incluindo nome, bio e informações de contato.",
+      "icon": "carbon:user-avatar"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Nome completo do autor."
+      },
+      "bio": {
+        "label": "Bio",
+        "type": "EnHtml",
+        "help": "Uma breve biografia do autor, que pode ser exibida nas postagens ou na página de autor."
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email",
+        "help": "Endereço de e-mail do autor."
+      },
+      "avatar": {
+        "label": "Avatar",
+        "type": "EnlFile",
+        "help": "Imagem de perfil do autor."
+      },
+      "postagens": {
+        "label": "Postagens",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:postagens",
+        "help": "Postagens escritas pelo autor."
+      }
+    }
+  },
+  {
+    "name": "categorias",
+    "info": {
+      "displayName": "Categorias",
+      "singularName": "Categoria",
+      "pluralName": "Categorias",
+      "description": "Gerenciamento das categorias que organizam as postagens do blog.",
+      "icon": "bi:tags-fill"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Nome da categoria."
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "inputText",
+        "help": "Uma breve descrição sobre o que a categoria representa."
+      },
+      "postagens": {
+        "label": "Postagens",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:postagens",
+        "help": "Postagens que pertencem a esta categoria."
+      }
+    }
+  },
+  {
+    "name": "comentarios",
+    "info": {
+      "displayName": "Comentários",
+      "singularName": "Comentário",
+      "pluralName": "Comentários",
+      "description": "Gerenciamento dos comentários deixados pelos leitores nas postagens do blog.",
+      "icon": "bi:chat-left-text"
+    },
+    "attributes": {
+      "autor": {
+        "label": "Autor",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Nome do autor do comentário."
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email",
+        "help": "Endereço de e-mail do autor do comentário."
+      },
+      "conteudo": {
+        "label": "Conteúdo",
+        "type": "EnHtml",
+        "validation": "required",
+        "help": "O conteúdo do comentário."
+      },
+      "data_comentario": {
+        "label": "Data do Comentário",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Data em que o comentário foi feito."
+      },
+      "postagem": {
+        "label": "Postagem",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:postagens",
+        "help": "A postagem à qual o comentário está relacionado."
+      },
+      "status": {
+        "label": "Status",
+        "type": "EnlDropdown",
+        "options": ["Aguardando moderação", "Aprovado", "Rejeitado"],
+        "help": "O status do comentário, indicando se ele foi aprovado, rejeitado ou está aguardando moderação."
+      }
+    }
+  }
+]
