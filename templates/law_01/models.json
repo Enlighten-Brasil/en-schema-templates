@@ -1,0 +1,816 @@
+[
+  {
+    "name": "processos",
+    "info": {
+      "displayName": "Processos",
+      "singularName": "Processo",
+      "pluralName": "Processos",
+      "description": "Processos gerenciados pela empresa",
+      "icon": "file"
+    },
+    "attributes": {
+      "tipo": {
+        "label": "Tipo",
+        "type": "EnlDropdown",
+        "options": [
+          "Judicial",
+          "Extrajudicial",
+          "Exemplo_1",
+          "Exemplo_2"
+        ],
+        "section": "Principal",
+        "width": "2/12"
+      },
+      "titulo": {
+        "type": "inputText",
+        "label": "Título",
+        "validation": "required",
+        "section": "Principal",
+        "width": "5/12"
+      },
+      "assunto": {
+        "label": "Tipo de ação/assunto",
+        "type": "EnlDropdown",
+        "options": [
+          "Ação de cobrança",
+          "Ação de despejo",
+          "Ação de reintegração de posse"
+        ],
+        "section": "Principal",
+        "width": "5/12"
+      },
+      "cliente": {
+        "label": "Cliente",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:clientes",
+        "section": "Principal",
+        "width": "4/12"
+      },
+      "qualificacao": {
+        "label": "Qualificação",
+        "type": "EnlDropdown",
+        "validation": "required",
+        "options": [
+          "Exemplo_1",
+          "Exemplo_2",
+          "Exemplo_3"
+        ],
+        "section": "Principal",
+        "width": "2/12"
+      },
+      "numero_cnj": {
+        "label": "Número (CNJ)",
+        "type": "inputText",
+        "validation": [
+          "required",
+          "uniqueValue"
+        ],
+        "masks": [
+          "#######-##.####.#.##.####"
+        ],
+        "section": "Principal",
+        "width": "3/12"
+      },
+      "area": {
+        "label": "Área",
+        "type": "EnlDropdown",
+        "options": [
+          "Cível",
+          "Trabalhista",
+          "Família"
+        ],
+        "section": "Principal",
+        "width": "3/12"
+      },
+      "n_pasta": {
+        "label": "Nº Pasta",
+        "type": "inputText",
+        "startValue": "Á Gerar",
+        "validation": [
+          "uniqueValue",
+          "autoIncrement"
+        ],
+        "section": "Principal",
+        "width": "6/12"
+      },
+      "advogado": {
+        "label": "Advogado",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "enspace:members",
+        "section": "Principal",
+        "width": "6/12"
+      },
+      "push_andamentos": {
+        "label": "Push de andamentos",
+        "type": "inputSwitch",
+        "section": "Principal",
+        "width": "3/12"
+      },
+      "tribunal": {
+        "label": "Tribunal / Orgão",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:tribunais",
+        "section": "Principal",
+        "width": "4/12"
+      },
+      "uf": {
+        "label": "UF",
+        "type": "EnlDropdown",
+        "options": [
+          "SP",
+          "RJ",
+          "MG"
+        ],
+        "section": "Principal",
+        "width": "3/12"
+      },
+      "comarca": {
+        "label": "Comarca",
+        "type": "inputText",
+        "section": "Principal",
+        "width": "3/12"
+      },
+      "instancia": {
+        "label": "Instância",
+        "type": "EnlDropdown",
+        "options": [
+          "1ª",
+          "2ª",
+          "3ª"
+        ],
+        "section": "Principal",
+        "width": "3/12"
+      },
+      "vara": {
+        "label": "Vara / Turma",
+        "type": "inputText",
+        "section": "Principal",
+        "width": "3/12"
+      },
+      "juiz": {
+        "label": "Juiz",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:juizes",
+        "section": "Principal",
+        "width": "6/12"
+      },
+      "partes": {
+        "label": "Partes",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:partes",
+        "section": "Partes",
+        "width": "12/12"
+      },
+      "andamentos": {
+        "label": "Andamentos",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:andamentos",
+        "section": "Andamentos",
+        "width": "12/12"
+      },
+      "publicacoes": {
+        "label": "Publicações",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:publicacoes",
+        "section": "Publicações",
+        "width": "12/12"
+      },
+      "desdobramentos": {
+        "label": "Desdobramentos",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:processos",
+        "section": "Desdobramentos",
+        "width": "12/12"
+      },
+      "agenda": {
+        "label": "Agenda",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:agenda",
+        "section": "Agenda",
+        "width": "12/12"
+      },
+      "ged": {
+        "label": "GED",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:ged",
+        "section": "GED",
+        "width": "12/12"
+      }
+    }
+  },
+  {
+    "name": "clientes",
+    "info": {
+      "displayName": "Clientes",
+      "singularName": "Cliente",
+      "pluralName": "Clientes",
+      "description": "Clientes da empresa",
+      "icon": "people"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome",
+        "type": "inputText",
+        "validation": "required"
+      },
+      "tipo": {
+        "label": "Tipo",
+        "type": "EnlDropdown",
+        "options": [
+          "Pessoa Física",
+          "Pessoa Jurídica"
+        ]
+      },
+      "cpf_cnpj": {
+        "label": "CPF / CNPJ",
+        "type": "inputText",
+        "validation": "required",
+        "masks": [
+          "###.###.###-##",
+          "##.###.###/####-##"
+        ]
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email"
+      },
+      "telefone": {
+        "label": "Telefone",
+        "type": "inputText",
+        "masks": [
+          "(##) ####-####",
+          "(##) #####-####"
+        ]
+      },
+      "endereco": {
+        "label": "Endereço",
+        "type": "inputText"
+      },
+      "cidade": {
+        "label": "Cidade",
+        "type": "inputText"
+      },
+      "uf": {
+        "label": "UF",
+        "type": "EnlDropdown",
+        "options": [
+          "SP",
+          "RJ",
+          "MG"
+        ]
+      },
+      "cep": {
+        "label": "CEP",
+        "type": "inputText",
+        "masks": [
+          "#####-###"
+        ]
+      },
+      "observacoes": {
+        "label": "Observações",
+        "type": "inputText"
+      },
+      "processos": {
+        "label": "Processo",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:processos"
+      }
+    }
+  },
+  {
+    "name": "tribunais",
+    "info": {
+      "displayName": "Tribunais",
+      "singularName": "Tribunal",
+      "pluralName": "Tribunais",
+      "description": "Tribunais e órgãos judiciais",
+      "icon": "account_balance"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome",
+        "type": "inputText",
+        "validation": "required"
+      }
+    }
+  },
+  {
+    "name": "juizes",
+    "info": {
+      "displayName": "Juízes",
+      "singularName": "Juiz",
+      "pluralName": "Juízes",
+      "description": "Juízes e magistrados",
+      "icon": "gavel"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome",
+        "type": "inputText",
+        "validation": "required"
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email"
+      }
+    }
+  },
+  {
+    "name": "partes",
+    "info": {
+      "displayName": "Partes",
+      "singularName": "Parte",
+      "pluralName": "Partes",
+      "description": "Partes envolvidas nos processos",
+      "icon": "people"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome",
+        "type": "inputText",
+        "validation": "required"
+      },
+      "tipo": {
+        "label": "Tipo",
+        "type": "EnlDropdown",
+        "options": [
+          "Autor",
+          "Réu",
+          "Interessado",
+          "Terceiro"
+        ]
+      },
+      "cpf_cnpj": {
+        "label": "CPF / CNPJ",
+        "type": "inputText",
+        "validation": "required",
+        "masks": [
+          "###.###.###-##",
+          "##.###.###/####-##"
+        ]
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email"
+      },
+      "telefone": {
+        "label": "Telefone",
+        "type": "inputText",
+        "masks": [
+          "(##) ####-####",
+          "(##) #####-####"
+        ]
+      },
+      "endereco": {
+        "label": "Endereço",
+        "type": "inputText"
+      },
+      "cidade": {
+        "label": "Cidade",
+        "type": "inputText"
+      },
+      "uf": {
+        "label": "UF",
+        "type": "EnlDropdown",
+        "options": [
+          "SP",
+          "RJ",
+          "MG"
+        ]
+      },
+      "cep": {
+        "label": "CEP",
+        "type": "inputText",
+        "masks": [
+          "#####-###"
+        ]
+      },
+      "observacoes": {
+        "label": "Observações",
+        "type": "inputText"
+      },
+      "processos": {
+        "label": "Processo",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:processos"
+      }
+    }
+  },
+  {
+    "name": "andamentos",
+    "info": {
+      "displayName": "Andamentos",
+      "singularName": "Andamento",
+      "pluralName": "Andamentos",
+      "description": "Andamentos processuais",
+      "icon": "assignment"
+    },
+    "attributes": {
+      "data": {
+        "label": "Data",
+        "type": "EnlCalendar",
+        "validation": "required"
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "inputText",
+        "validation": "required"
+      },
+      "processo": {
+        "label": "Processo",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:processos"
+      }
+    }
+  },
+  {
+    "name": "publicacoes",
+    "info": {
+      "displayName": "Publicações",
+      "singularName": "Publicação",
+      "pluralName": "Publicações",
+      "description": "Publicações processuais",
+      "icon": "description"
+    },
+    "attributes": {
+      "status": {
+        "label": "Status",
+        "type": "EnlDropdown",
+        "options": [
+          "Pendente",
+          "Visualizado"
+        ]
+      },
+      "data": {
+        "label": "Data",
+        "type": "EnlCalendar",
+        "validation": "required"
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "inputText",
+        "validation": "required"
+      },
+      "processo": {
+        "label": "Processo",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:processos"
+      }
+    }
+  },
+  {
+    "name": "agenda",
+    "info": {
+      "displayName": "Agenda",
+      "singularName": "Agenda",
+      "pluralName": "Agenda",
+      "description": "Agenda e agendamentos",
+      "icon": "event"
+    },
+    "attributes": {
+      "cliente": {
+        "label": "Cliente",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:clientes"
+      },
+      "tipo_evento": {
+        "label": "Tipo de evento",
+        "type": "EnlDropdown",
+        "options": [
+          "Atendimento",
+          "Audiência",
+          "Auditoria",
+          "Compromisso Particular",
+          "Compromisso Privado",
+          "Consultoria",
+          "Diligência",
+          "Evento e Cursos",
+          "Ligação",
+          "Outros",
+          "Pericia",
+          "Prazo Processual",
+          "Reunião",
+          "Sessão de Julgamento",
+          "Solicitar Demanda",
+          "Tarefa",
+          "Viagem"
+        ]
+      },
+      "workflow": {
+        "label": "Workflow",
+        "type": "EnlDropdown",
+        "options": [
+          "Consultoria",
+          "Reunião",
+          "Audiência",
+          "Prazo",
+          "Outro",
+          "Tarefa"
+        ]
+      },
+      "status": {
+        "label": "Status",
+        "type": "EnlDropdown",
+        "options": [
+          "Aberto",
+          "Concluída",
+          "Cancelada"
+        ]
+      },
+      "responsaveis": {
+        "label": "Responsáveis",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "enspace:members"
+      },
+      "data_interna": {
+        "label": "Interna",
+        "type": "EnlCalendar"
+      },
+      "data_fatal": {
+        "label": "Fatal",
+        "type": "EnlCalendar"
+      },
+      "data_conclusao": {
+        "label": "Conclusão",
+        "type": "EnlCalendar"
+      },
+      "timesheet": {
+        "label": "Timesheet",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:timesheet"
+      },
+      "processo": {
+        "label": "Processo",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:processos"
+      },
+      "projeto": {
+        "label": "Projeto",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:projetos"
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "EnHtml",
+        "validation": "required",
+        "width": "12/12"
+      }
+    }
+    
+  },
+  {
+    "name": "timesheet",
+    "info": {
+      "displayName": "Timesheet",
+      "singularName": "Timesheet",
+      "pluralName": "Timesheet",
+      "description": "Registro de horas trabalhadas",
+      "icon": "schedule"
+    },
+    "attributes": {
+      "data": {
+        "label": "Data",
+        "type": "EnlCalendar",
+        "validation": "required"
+      },
+      "hora_inicio": {
+        "label": "Hora Início",
+        "type": "EnlCalendar",
+        "validation": "required"
+      },
+      "hora_fim": {
+        "label": "Hora Fim",
+        "type": "EnlCalendar",
+        "validation": "required"
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "inputText",
+        "validation": "required"
+      },
+      "agenda": {
+        "label": "Agenda",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:agenda"
+      }
+    }
+  },
+  {
+    "name": "projetos",
+    "info": {
+      "displayName": "Projetos",
+      "singularName": "Projeto",
+      "pluralName": "Projetos",
+      "description": "Projetos e atividades",
+      "icon": "work"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Titulo do Projeto",
+        "type": "inputText",
+        "validation": "required",
+        "width": "4/12"
+      },
+      "n_pasta": {
+        "label": "Nº da Pasta",
+        "type": "inputText",
+        "width": "2/12"
+      },
+      "detalhes_pasta": {
+        "label": "Detalhes da Pasta",
+        "type": "inputText",
+        "width": "3/12"
+      },
+      "cliente": {
+        "label": "Cliente",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:clientes",
+        "width": "3/12"
+      },
+      "responsaveis": {
+        "label": "Responsáveis",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "enspace:members",
+        "width": "3/12"
+      },
+      "status": {
+        "label": "Status/Fase",
+        "type": "EnlDropdown",
+        "options": [
+          "Aberto",
+          "Parado",
+          "Cancelado",
+          "Concluído"
+        ],
+        "startValue": "Aberto",
+        "width": "3/12"
+      },
+      "data_inicio": {
+        "label": "Data Início",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "width": "2/12"
+      },
+      "data_prevista": {
+        "label": "Data Prevista",
+        "type": "EnlCalendar",
+        "width": "2/12"
+      },
+      "data_conclusao": {
+        "label": "Finalizado em",
+        "type": "EnlCalendar",
+        "width": "2/12"
+      },
+      "contrato": {
+        "label": "Contrato",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:contratos",
+        "width": "4/12"
+      },
+      "arquivar_projeto": {
+        "label": "Arquivar projeto",
+        "type": "inputSwitch",
+        "width": "2/12"
+      },
+      "observacoes": {
+        "label": "Observações sobre o projeto",
+        "type": "EnHtml",
+        "width": "12/12"
+      },
+      "agenda": {
+        "label": "Agenda",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:agenda"
+      },
+      "andamentos": {
+        "label": "Andamentos",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:andamentos"
+      },
+      "mensagens": {
+        "label": "Mensagens",
+        "type": "EnNotes"
+      },
+      "ged": {
+        "label": "GED",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:ged"
+      }
+    }
+  },
+  {
+    "name": "ged",
+    "info": {
+      "displayName": "GED",
+      "singularName": "GED",
+      "pluralName": "GED",
+      "description": "Gestão eletrônica de documentos",
+      "icon": "folder"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome",
+        "type": "inputText",
+        "validation": "required"
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "inputText"
+      },
+      "documento": {
+        "label": "Documento",
+        "type": "EnlFile",
+        "validation": "required"
+      },
+      "processo": {
+        "label": "Processo",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:processos"
+      }
+    }
+  },
+  {
+    "name": "contratos",
+    "info": {
+      "displayName": "Contratos",
+      "singularName": "Contrato",
+      "pluralName": "Contratos",
+      "description": "Contratos e acordos",
+      "icon": "description"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome",
+        "type": "inputText",
+        "validation": "required"
+      },
+      "status": {
+        "label": "Status",
+        "type": "EnlDropdown",
+        "options": [
+          "Ativo",
+          "Concluído",
+          "Cancelado"
+        ]
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "inputText"
+      },
+      "cliente": {
+        "label": "Cliente",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:clientes"
+      },
+      "responsaveis": {
+        "label": "Responsáveis",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "enspace:members"
+      },
+      "agenda": {
+        "label": "Agenda",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:agenda"
+      },
+      "ged": {
+        "label": "GED",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:ged"
+      }
+    }
+  }
+]
