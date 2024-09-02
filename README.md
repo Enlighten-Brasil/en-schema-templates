@@ -184,17 +184,16 @@ O schema JSON é composto por diferentes entidades, cada uma representada como u
 ---
 
 ### **Exemplos**
-/templates
-  /school_01
+ - /school_01
     - [README.md](/home/hardeath950/Documentos/en-schema-templates/school_01/README.md)
     - [schema.json](/home/hardeath950/Documentos/en-schema-templates/school_01/schema.json)
-  /blog_01
+ - /blog_01
     - [README.md](/home/hardeath950/Documentos/en-schema-templates/blog_01/README.md)
     - [schema.json](/home/hardeath950/Documentos/en-schema-templates/blog_01/schema.json)
-  /law_01
+ - /law_01
     - [README.md](/home/hardeath950/Documentos/en-schema-templates/law_01/README.md)
     - [schema.json](/home/hardeath950/Documentos/en-schema-templates/law_01/schema.json)
-  /library_01
+ - /library_01
     - [README.md](/home/hardeath950/Documentos/en-schema-templates/library_01/README.md)
     - [schema.json](/home/hardeath950/Documentos/en-schema-templates/library_01/schema.json)
   ...
