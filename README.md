@@ -184,18 +184,18 @@ O schema JSON é composto por diferentes entidades, cada uma representada como u
 ---
 
 ### **Exemplos**
- - /school_01
-    - [README.md](/home/hardeath950/Documentos/en-schema-templates/school_01/README.md)
-    - [schema.json](/home/hardeath950/Documentos/en-schema-templates/school_01/schema.json)
- - /blog_01
-    - [README.md](/home/hardeath950/Documentos/en-schema-templates/blog_01/README.md)
-    - [schema.json](/home/hardeath950/Documentos/en-schema-templates/blog_01/schema.json)
- - /law_01
-    - [README.md](/home/hardeath950/Documentos/en-schema-templates/law_01/README.md)
-    - [schema.json](/home/hardeath950/Documentos/en-schema-templates/law_01/schema.json)
- - /library_01
-    - [README.md](/home/hardeath950/Documentos/en-schema-templates/library_01/README.md)
-    - [schema.json](/home/hardeath950/Documentos/en-schema-templates/library_01/schema.json)
+ - /school_01 - Gereciamento de escola
+    - [README.md](/templates/school_01/README.md)
+    - [schema.json](/templates/school_01/schema.json)
+ - /blog_01 - Gerenciamento de blog
+    - [README.md](/templates/blog_01/README.md)
+    - [schema.json](/templates/blog_01/schema.json)
+ - /law_01 - Gerenciamento jurídico
+    - [README.md](/templates/law_01/README.md)
+    - [schema.json](/templates/law_01/schema.json)
+ - /library_01 - Gerenciamento de biblioteca
+    - [README.md](/templates/library_01/README.md)
+    - [schema.json](/templates/library_01/schema.json)
   ...
 
 ### **Conclusão**
