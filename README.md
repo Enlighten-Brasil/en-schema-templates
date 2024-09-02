@@ -6,12 +6,6 @@ Repositorio para templates de modelos do Enspace
 
 ---
 
-#### **Introdução**
-
-Este documento tem como objetivo orientar os usuários na compreensão e correto preenchimento do schema JSON utilizado para gerenciar diversas entidades dentro de um sistema de gestão jurídica. As entidades descritas neste schema abrangem desde processos judiciais até a gestão de clientes, juízes, partes envolvidas, e documentação associada.
-
----
-
 ### **Estrutura Geral do Schema**
 
 O schema JSON é composto por diferentes entidades, cada uma representada como um objeto com os seguintes componentes principais:
