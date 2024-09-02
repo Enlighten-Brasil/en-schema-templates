@@ -1,0 +1,299 @@
+[
+  {
+    "name": "alunos",
+    "info": {
+      "displayName": "Alunos",
+      "singularName": "Aluno",
+      "pluralName": "Alunos",
+      "description": "Gerenciamento dos dados dos alunos matriculados na escola, incluindo informações pessoais, matrícula, turma e notas.",
+      "icon": "ion:person-circle"
+    },
+    "attributes": {
+      "matricula": {
+        "label": "Matrícula",
+        "type": "inputText",
+        "validation": "required|unique",
+        "help": "Número de matrícula único para cada aluno."
+      },
+      "nome": {
+        "label": "Nome do Aluno",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Nome completo do aluno."
+      },
+      "data_nascimento": {
+        "label": "Data de Nascimento",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Data de nascimento do aluno."
+      },
+      "endereco": {
+        "label": "Endereço",
+        "type": "inputText",
+        "help": "Endereço residencial do aluno."
+      },
+      "turma": {
+        "label": "Turma",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:turmas",
+        "help": "Turma atual em que o aluno está matriculado."
+      },
+      "notas": {
+        "label": "Notas",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:notas",
+        "help": "Notas do aluno em diferentes disciplinas."
+      },
+      "contato_responsavel": {
+        "label": "Contato do Responsável",
+        "type": "inputText",
+        "help": "Informações de contato do responsável pelo aluno."
+      }
+    }
+  },
+  {
+    "name": "professores",
+    "info": {
+      "displayName": "Professores",
+      "singularName": "Professor",
+      "pluralName": "Professores",
+      "description": "Gerenciamento dos dados dos professores, incluindo disciplinas lecionadas e turmas atribuídas.",
+      "icon": "ion:school-outline"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome do Professor",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Nome completo do professor."
+      },
+      "cpf": {
+        "label": "CPF",
+        "type": "inputText",
+        "validation": "required|unique",
+        "masks": ["###.###.###-##"],
+        "help": "CPF único do professor."
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email",
+        "help": "Endereço de e-mail do professor."
+      },
+      "telefone": {
+        "label": "Telefone",
+        "type": "inputText",
+        "masks": ["(##) #####-####"],
+        "help": "Número de telefone de contato do professor."
+      },
+      "disciplinas": {
+        "label": "Disciplinas",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:disciplinas",
+        "help": "Disciplinas lecionadas pelo professor."
+      },
+      "turmas": {
+        "label": "Turmas",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:turmas",
+        "help": "Turmas atribuídas ao professor."
+      }
+    }
+  },
+  {
+    "name": "turmas",
+    "info": {
+      "displayName": "Turmas",
+      "singularName": "Turma",
+      "pluralName": "Turmas",
+      "description": "Gerenciamento das turmas da escola, incluindo alunos matriculados, professores responsáveis e disciplinas lecionadas.",
+      "icon": "ion:people"
+    },
+    "attributes": {
+      "codigo": {
+        "label": "Código da Turma",
+        "type": "inputText",
+        "validation": "required|unique",
+        "help": "Código único que identifica a turma."
+      },
+      "nome": {
+        "label": "Nome da Turma",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Nome da turma (ex: 3º Ano A)."
+      },
+      "ano_letivo": {
+        "label": "Ano Letivo",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Ano letivo da turma."
+      },
+      "professor_responsavel": {
+        "label": "Professor Responsável",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:professores",
+        "help": "Professor responsável pela turma."
+      },
+      "alunos": {
+        "label": "Alunos",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:alunos",
+        "help": "Lista de alunos matriculados na turma."
+      },
+      "disciplinas": {
+        "label": "Disciplinas",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:disciplinas",
+        "help": "Disciplinas que serão lecionadas nesta turma."
+      }
+    }
+  },
+  {
+    "name": "disciplinas",
+    "info": {
+      "displayName": "Disciplinas",
+      "singularName": "Disciplina",
+      "pluralName": "Disciplinas",
+      "description": "Gerenciamento das disciplinas oferecidas pela escola, incluindo nome, carga horária e turmas associadas.",
+      "icon": "ion:book"
+    },
+    "attributes": {
+      "codigo": {
+        "label": "Código da Disciplina",
+        "type": "inputText",
+        "validation": "required|unique",
+        "help": "Código único que identifica a disciplina."
+      },
+      "nome": {
+        "label": "Nome da Disciplina",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Nome completo da disciplina."
+      },
+      "carga_horaria": {
+        "label": "Carga Horária",
+        "type": "EnlNumber",
+        "validation": "required",
+        "help": "Carga horária total da disciplina em horas."
+      },
+      "turmas": {
+        "label": "Turmas",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:turmas",
+        "help": "Turmas onde a disciplina será lecionada."
+      },
+      "professores": {
+        "label": "Professores",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:professores",
+        "help": "Professores que lecionam a disciplina."
+      }
+    }
+  },
+  {
+    "name": "horarios",
+    "info": {
+      "displayName": "Horários",
+      "singularName": "Horário",
+      "pluralName": "Horários",
+      "description": "Gerenciamento dos horários das aulas para cada turma e disciplina.",
+      "icon": "ion:time-outline"
+    },
+    "attributes": {
+      "turma": {
+        "label": "Turma",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:turmas",
+        "help": "Turma para a qual o horário é definido."
+      },
+      "disciplina": {
+        "label": "Disciplina",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:disciplinas",
+        "help": "Disciplina que será lecionada no horário definido."
+      },
+      "professor": {
+        "label": "Professor",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:professores",
+        "help": "Professor responsável por lecionar a disciplina no horário definido."
+      },
+      "dia_semana": {
+        "label": "Dia da Semana",
+        "type": "EnlDropdown",
+        "options": ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"],
+        "validation": "required",
+        "help": "Dia da semana em que a aula ocorrerá."
+      },
+      "hora_inicio": {
+        "label": "Hora de Início",
+        "type": "inputText",
+        "validation": "required",
+        "masks": ["##:##"],
+        "help": "Hora de início da aula."
+      },
+      "hora_fim": {
+        "label": "Hora de Término",
+        "type": "inputText",
+        "validation": "required",
+        "masks": ["##:##"],
+        "help": "Hora de término da aula."
+      }
+    }
+  },
+  {
+    "name": "notas",
+    "info": {
+      "displayName": "Notas",
+      "singularName": "Nota",
+      "pluralName": "Notas",
+      "description": "Registro das notas obtidas pelos alunos em cada disciplina.",
+      "icon": "ion:clipboard-outline"
+    },
+    "attributes": {
+      "aluno": {
+        "label": "Aluno",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:alunos",
+        "help": "Aluno que recebeu a nota."
+      },
+      "disciplina": {
+        "label": "Disciplina",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:disciplinas",
+        "help": "Disciplina para a qual a nota foi atribuída."
+      },
+      "nota": {
+        "label": "Nota",
+        "type": "EnlNumber",
+        "validation": "required|between:0,10",
+        "help": "Nota obtida pelo aluno na disciplina."
+      },
+      "data": {
+        "label": "Data da Avaliação",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Data em que a avaliação foi realizada."
+      },
+      "observacao": {
+        "label": "Observação",
+        "type": "inputText",
+        "help": "Observações adicionais sobre a nota ou avaliação."
+      }
+    }
+  }
+]
