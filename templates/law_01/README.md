@@ -6,6 +6,9 @@
 
 Este esquema foi desenvolvido para gerenciar diversos aspectos de um sistema jurídico, incluindo processos, clientes, tribunais, juízes, partes envolvidas, andamentos processuais, publicações, agenda, e muito mais. O objetivo é fornecer uma estrutura robusta para armazenar e manipular dados relevantes dentro de um sistema de gestão jurídica, facilitando a organização e o acesso a informações críticas para o funcionamento eficiente de uma organização jurídica.
 
+### **Diagrama ER**
+![Diagrama ER](https://raw.githubusercontent.com/Enlighten-Brasil/en-schema-templates/main/templates/law_01/diagram.svg)
+
 ### **Entidades Principais**
 
 O esquema é composto por várias entidades, cada uma representando um aspecto específico do sistema jurídico. Abaixo estão as entidades principais, com uma descrição de seu uso e funcionalidade.
