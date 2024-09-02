@@ -1,0 +1,256 @@
+[
+  {
+    "name": "clientes",
+    "info": {
+      "displayName": "Clientes",
+      "singularName": "Cliente",
+      "pluralName": "Clientes",
+      "description": "Gerenciamento das informações dos clientes que realizam pagamentos, incluindo dados pessoais e detalhes de contato.",
+      "icon": "ion:person-circle"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome do Cliente",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Nome completo do cliente."
+      },
+      "cpf_cnpj": {
+        "label": "CPF / CNPJ",
+        "type": "inputText",
+        "validation": "required|unique",
+        "masks": [
+          "###.###.###-##",
+          "##.###.###/####-##"
+        ],
+        "help": "CPF ou CNPJ único do cliente, dependendo do tipo de pessoa (física ou jurídica)."
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email",
+        "help": "Endereço de e-mail do cliente."
+      },
+      "telefone": {
+        "label": "Telefone",
+        "type": "inputText",
+        "masks": [
+          "(##) #####-####"
+        ],
+        "help": "Número de telefone de contato do cliente."
+      },
+      "endereco": {
+        "label": "Endereço",
+        "type": "inputText",
+        "help": "Endereço completo do cliente."
+      }
+    }
+  },
+  {
+    "name": "pagamentos",
+    "info": {
+      "displayName": "Pagamentos",
+      "singularName": "Pagamento",
+      "pluralName": "Pagamentos",
+      "description": "Gerenciamento dos pagamentos realizados pelos clientes, incluindo valor, data e método de pagamento.",
+      "icon": "ion:card"
+    },
+    "attributes": {
+      "codigo_pagamento": {
+        "label": "Código do Pagamento",
+        "type": "inputText",
+        "validation": "required|unique",
+        "help": "Código único que identifica o pagamento."
+      },
+      "cliente": {
+        "label": "Cliente",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:clientes",
+        "help": "Cliente que realizou o pagamento."
+      },
+      "valor": {
+        "label": "Valor do Pagamento",
+        "type": "EnlNumber",
+        "validation": "required|min:0",
+        "help": "Valor total do pagamento realizado."
+      },
+      "data_pagamento": {
+        "label": "Data do Pagamento",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Data em que o pagamento foi efetuado."
+      },
+      "metodo_pagamento": {
+        "label": "Método de Pagamento",
+        "type": "EnlDropdown",
+        "options": [
+          "Cartão de Crédito",
+          "Cartão de Débito",
+          "Boleto Bancário",
+          "Pix",
+          "Transferência Bancária"
+        ],
+        "validation": "required",
+        "help": "Método utilizado para realizar o pagamento."
+      },
+      "status_pagamento": {
+        "label": "Status do Pagamento",
+        "type": "EnlDropdown",
+        "options": [
+          "Pendente",
+          "Concluído",
+          "Cancelado"
+        ],
+        "validation": "required",
+        "help": "Status atual do pagamento."
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "inputText",
+        "help": "Descrição adicional ou observações sobre o pagamento."
+      }
+    }
+  },
+  {
+    "name": "faturas",
+    "info": {
+      "displayName": "Faturas",
+      "singularName": "Fatura",
+      "pluralName": "Faturas",
+      "description": "Gerenciamento das faturas geradas para os clientes, incluindo itens cobrados e status de pagamento.",
+      "icon": "ion:receipt"
+    },
+    "attributes": {
+      "codigo_fatura": {
+        "label": "Código da Fatura",
+        "type": "inputText",
+        "validation": "required|unique",
+        "help": "Código único que identifica a fatura."
+      },
+      "cliente": {
+        "label": "Cliente",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:clientes",
+        "help": "Cliente para o qual a fatura foi emitida."
+      },
+      "data_emissao": {
+        "label": "Data de Emissão",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Data em que a fatura foi emitida."
+      },
+      "data_vencimento": {
+        "label": "Data de Vencimento",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Data limite para pagamento da fatura."
+      },
+      "valor_total": {
+        "label": "Valor Total",
+        "type": "EnlNumber",
+        "validation": "required|min:0",
+        "help": "Valor total a ser pago pela fatura."
+      },
+      "status_fatura": {
+        "label": "Status da Fatura",
+        "type": "EnlDropdown",
+        "options": [
+          "Pendente",
+          "Pago",
+          "Vencido",
+          "Cancelado"
+        ],
+        "validation": "required",
+        "help": "Status atual da fatura."
+      },
+      "itens_fatura": {
+        "label": "Itens da Fatura",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:itens_fatura",
+        "help": "Itens detalhados incluídos na fatura."
+      }
+    }
+  },
+  {
+    "name": "itens_fatura",
+    "info": {
+      "displayName": "Itens da Fatura",
+      "singularName": "Item da Fatura",
+      "pluralName": "Itens da Fatura",
+      "description": "Detalhamento dos itens que compõem uma fatura, incluindo descrição, quantidade e preço unitário.",
+      "icon": "ion:document-text"
+    },
+    "attributes": {
+      "descricao_item": {
+        "label": "Descrição do Item",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Descrição detalhada do item faturado."
+      },
+      "quantidade": {
+        "label": "Quantidade",
+        "type": "EnlNumber",
+        "validation": "required|min:1",
+        "help": "Quantidade de itens faturados."
+      },
+      "preco_unitario": {
+        "label": "Preço Unitário",
+        "type": "EnlNumber",
+        "validation": "required|min:0",
+        "help": "Preço unitário do item faturado."
+      },
+      "valor_total": {
+        "label": "Valor Total",
+        "type": "EnlNumber",
+        "validation": "required|min:0",
+        "help": "Valor total para a quantidade especificada deste item."
+      }
+    }
+  },
+  {
+    "name": "relatorios_pagamentos",
+    "info": {
+      "displayName": "Relatórios de Pagamentos",
+      "singularName": "Relatório de Pagamento",
+      "pluralName": "Relatórios de Pagamentos",
+      "description": "Geração de relatórios detalhados sobre os pagamentos realizados, pendentes e cancelados.",
+      "icon": "ion:stats-chart"
+    },
+    "attributes": {
+      "periodo_inicio": {
+        "label": "Período de Início",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Data de início do período do relatório."
+      },
+      "periodo_fim": {
+        "label": "Período de Fim",
+        "type": "EnlCalendar",
+        "validation": "required",
+        "help": "Data de fim do período do relatório."
+      },
+      "status_pagamento": {
+        "label": "Status do Pagamento",
+        "type": "EnlDropdown",
+        "options": [
+          "Todos",
+          "Pendente",
+          "Concluído",
+          "Cancelado"
+        ],
+        "validation": "required",
+        "help": "Filtrar os pagamentos pelo status desejado no relatório."
+      },
+      "cliente": {
+        "label": "Cliente",
+        "type": "EnRel",
+        "relation": "oneToOne",
+        "target": "models:clientes",
+        "help": "Filtrar relatórios por cliente específico."
+      }
+    }
+  }
+]
