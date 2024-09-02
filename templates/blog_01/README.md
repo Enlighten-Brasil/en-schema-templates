@@ -55,9 +55,7 @@ Este sistema foi projetado para gerenciar as postagens de um blog, permitindo a 
 
 #### 4. **Entidade: Comentários**
 
-**
-
-Descrição**: A entidade "Comentários" gerencia as interações dos leitores com as postagens, permitindo que deixem opiniões, feedbacks ou perguntas.
+**Descrição**: A entidade "Comentários" gerencia as interações dos leitores com as postagens, permitindo que deixem opiniões, feedbacks ou perguntas.
 
 **Uso**: Essa entidade é utilizada para armazenar e moderar os comentários feitos pelos leitores nas postagens do blog, garantindo que o conteúdo gerado pelos usuários seja administrado de forma adequada.
 
