@@ -183,6 +183,22 @@ O schema JSON é composto por diferentes entidades, cada uma representada como u
 
 ---
 
+### **Exemplos**
+/templates
+  /school_01
+    - [README.md](/home/hardeath950/Documentos/en-schema-templates/school_01/README.md)
+    - [schema.json](/home/hardeath950/Documentos/en-schema-templates/school_01/schema.json)
+  /blog_01
+    - [README.md](/home/hardeath950/Documentos/en-schema-templates/blog_01/README.md)
+    - [schema.json](/home/hardeath950/Documentos/en-schema-templates/blog_01/schema.json)
+  /law_01
+    - [README.md](/home/hardeath950/Documentos/en-schema-templates/law_01/README.md)
+    - [schema.json](/home/hardeath950/Documentos/en-schema-templates/law_01/schema.json)
+  /library_01
+    - [README.md](/home/hardeath950/Documentos/en-schema-templates/library_01/README.md)
+    - [schema.json](/home/hardeath950/Documentos/en-schema-templates/library_01/schema.json)
+  ...
+
 ### **Conclusão**
 
 Este guia fornece uma visão detalhada do preenchimento e entendimento do schema JSON utilizado no sistema de gestão jurídica. Seguindo essas orientações, os usuários poderão configurar e utilizar as entidades e seus atributos de forma eficiente, garantindo um fluxo de trabalho organizado e consistente.
