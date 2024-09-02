@@ -4,6 +4,9 @@ Este documento apresenta a descrição do esquema criado para o gerenciamento de
 
 ---
 
+### **Diagrama ER**
+![Diagrama ER](https://raw.githubusercontent.com/Enlighten-Brasil/en-schema-templates/main/templates/library_01/diagram.svg)
+
 #### 1. **Entidade: Livros**
 
 **Descrição**: A entidade "Livros" é responsável por armazenar e gerenciar todas as informações sobre os livros disponíveis na livraria ou biblioteca. Isso inclui detalhes essenciais como o título, autor, categoria, ISBN, e disponibilidade. Esta entidade é fundamental para manter um registro preciso do acervo literário.
