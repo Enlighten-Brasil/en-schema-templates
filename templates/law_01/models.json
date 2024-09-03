@@ -19,7 +19,7 @@
           "Exemplo_2"
         ],
         "section": "Principal",
-        "width": "2/12",
+        "width": "3/12",
         "help": "Selecione o tipo de processo (Judicial, Extrajudicial ou outro exemplo)."
       },
       "titulo": {
@@ -39,7 +39,7 @@
           "Ação de reintegração de posse"
         ],
         "section": "Principal",
-        "width": "5/12",
+        "width": "4/12",
         "help": "Especifique o tipo de ação ou assunto relacionado ao processo."
       },
       "cliente": {
@@ -61,7 +61,7 @@
           "Exemplo_3"
         ],
         "section": "Principal",
-        "width": "2/12",
+        "width": "4/12",
         "help": "Escolha a qualificação aplicável ao processo. Este campo é obrigatório."
       },
       "numero_cnj": {
@@ -75,7 +75,7 @@
           "#######-##.####.#.##.####"
         ],
         "section": "Principal",
-        "width": "3/12",
+        "width": "4/12",
         "help": "Insira o número do processo conforme o formato CNJ. Este campo é único e obrigatório."
       },
       "area": {
@@ -87,7 +87,7 @@
           "Família"
         ],
         "section": "Principal",
-        "width": "3/12",
+        "width": "4/12",
         "help": "Selecione a área do direito à qual o processo pertence (ex: Cível, Trabalhista, Família)."
       },
       "n_pasta": {
@@ -115,7 +115,7 @@
         "label": "Push de andamentos",
         "type": "inputSwitch",
         "section": "Principal",
-        "width": "3/12",
+        "width": "4/12",
         "help": "Ative ou desative notificações automáticas de andamentos para este processo."
       },
       "tribunal": {
@@ -136,14 +136,14 @@
           "MG"
         ],
         "section": "Principal",
-        "width": "3/12",
+        "width": "4/12",
         "help": "Escolha a unidade federativa (estado) onde o processo está tramitando."
       },
       "comarca": {
         "label": "Comarca",
         "type": "inputText",
         "section": "Principal",
-        "width": "3/12",
+        "width": "4/12",
         "help": "Insira o nome da comarca onde o processo está localizado."
       },
       "instancia": {
@@ -155,14 +155,14 @@
           "3ª"
         ],
         "section": "Principal",
-        "width": "3/12",
+        "width": "4/12",
         "help": "Selecione a instância judicial em que o processo está (1ª, 2ª, 3ª instância)."
       },
       "vara": {
         "label": "Vara / Turma",
         "type": "inputText",
         "section": "Principal",
-        "width": "3/12",
+        "width": "4/12",
         "help": "Indique a vara ou turma responsável pelo processo."
       },
       "juiz": {
