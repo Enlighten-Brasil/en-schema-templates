@@ -537,10 +537,17 @@
       "displayName": "Andamentos",
       "singularName": "Andamento",
       "pluralName": "Andamentos",
+      "displayExpression": "{{data.titulo}} ({{data.data}})",
       "description": "Registro dos andamentos processuais, incluindo datas e descrições dos eventos ocorridos.",
       "icon": "uil:files-landscapes-alt"
     },
     "attributes": {
+      "titulo": {
+        "label": "Título",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Insira um título ou resumo do andamento processual. Este campo é obrigatório."
+      },
       "data": {
         "label": "Data",
         "type": "EnlCalendar",
@@ -611,6 +618,7 @@
       "displayName": "Agenda",
       "singularName": "Agenda",
       "pluralName": "Agenda",
+      "displayExpression": "{{data.tipo_evento}} ({{data.data_interna}})",
       "description": "Gerenciamento de eventos e compromissos relacionados aos processos e atividades da empresa.",
       "icon": "fluent:tasks-app-20-filled"
     },
@@ -727,6 +735,7 @@
       "displayName": "Timesheet",
       "singularName": "Timesheet",
       "pluralName": "Timesheet",
+      "displayExpression": "{{data.data}} ({{data.hora_inicio}} - {{data.hora_fim}})",
       "description": "Registro detalhado das horas trabalhadas em eventos, projetos e processos.",
       "icon": "material-symbols:avg-time"
     },
@@ -770,6 +779,7 @@
       "displayName": "Projetos",
       "singularName": "Projeto",
       "pluralName": "Projetos",
+      "displayExpression": "{{data.nome}} ({{data.data_inicio}})",
       "description": "Gerenciamento de projetos e atividades relacionados a clientes, incluindo status, datas e responsabilidades.",
       "icon": "octicon:project"
     },
@@ -897,6 +907,7 @@
       "displayName": "GED",
       "singularName": "GED",
       "pluralName": "GED",
+      "displayExpression": "{{data.nome}}",
       "description": "Gestão Eletrônica de Documentos (GED), permitindo o armazenamento e organização de documentos relacionados aos processos e projetos.",
       "icon": "game-icons:files"
     },
@@ -933,6 +944,7 @@
       "displayName": "Contratos",
       "singularName": "Contrato",
       "pluralName": "Contratos",
+      "displayExpression": "{{data.nome}}",
       "description": "Gerenciamento de contratos e acordos feitos com clientes, incluindo status, documentos relacionados e responsabilidades.",
       "icon": "clarity:contract-line"
     },
