@@ -87,7 +87,7 @@
           "Família"
         ],
         "section": "Principal",
-        "width": "4/12",
+        "width": "5/12",
         "help": "Selecione a área do direito à qual o processo pertence (ex: Cível, Trabalhista, Família)."
       },
       "n_pasta": {
@@ -99,8 +99,15 @@
           "autoIncrement"
         ],
         "section": "Principal",
-        "width": "6/12",
+        "width": "4/12",
         "help": "Número da pasta onde o processo está arquivado. Este número é gerado automaticamente e deve ser único."
+      },
+      "push_andamentos": {
+        "type": "inputSwitch",
+        "label": "Push",
+        "section": "Principal",
+        "width": "3/12",
+        "help": "Ative ou desative notificações automáticas de andamentos para este processo."
       },
       "advogado": {
         "label": "Advogado",
@@ -111,20 +118,13 @@
         "width": "6/12",
         "help": "Selecione o advogado responsável pelo processo."
       },
-      "push_andamentos": {
-        "label": "Push de andamentos",
-        "type": "inputSwitch",
-        "section": "Principal",
-        "width": "4/12",
-        "help": "Ative ou desative notificações automáticas de andamentos para este processo."
-      },
       "tribunal": {
         "label": "Tribunal / Orgão",
         "type": "EnRel",
         "relation": "oneToOne",
         "target": "models:tribunais",
         "section": "Principal",
-        "width": "4/12",
+        "width": "6/12",
         "help": "Selecione o tribunal ou órgão responsável pelo julgamento do processo."
       },
       "uf": {
