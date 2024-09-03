@@ -5,6 +5,7 @@
       "displayName": "Processos",
       "singularName": "Processo",
       "pluralName": "Processos",
+      "displayExpression": "{{data.titulo}} ({{data.numero_cnj}})",
       "description": "Registro e acompanhamento de todos os processos jurídicos que a empresa está gerenciando, incluindo detalhes essenciais como o tipo de processo, cliente envolvido, área de atuação, e advogado responsável.",
       "icon": "hugeicons:court-law"
     },
@@ -113,7 +114,7 @@
         "label": "Advogado",
         "type": "EnRel",
         "relation": "oneToOne",
-        "target": "enspace:members",
+        "target": "models:advogados",
         "section": "Principal",
         "width": "6/12",
         "help": "Selecione o advogado responsável pelo processo."
@@ -236,6 +237,7 @@
       "displayName": "Clientes",
       "singularName": "Cliente",
       "pluralName": "Clientes",
+      "displayExpression": "{{data.nome}}",
       "description": "Gerenciamento dos clientes da empresa, incluindo dados pessoais, tipo de cliente (físico ou jurídico), e informações de contato.",
       "icon": "carbon:customer"
     },
@@ -330,6 +332,7 @@
       "displayName": "Tribunais",
       "singularName": "Tribunal",
       "pluralName": "Tribunais",
+      "displayExpression": "{{data.nome}}",
       "description": "Cadastro e gestão dos tribunais e órgãos judiciais relevantes aos processos jurídicos.",
       "icon": "octicon:law"
     },
@@ -348,6 +351,7 @@
       "displayName": "Juízes",
       "singularName": "Juiz",
       "pluralName": "Juízes",
+      "displayExpression": "{{data.nome}}",
       "description": "Gerenciamento de juízes e magistrados que atuam nos processos.",
       "icon": "hugeicons:judge"
     },
@@ -363,6 +367,72 @@
         "type": "inputText",
         "validation": "email",
         "help": "Informe o endereço de e-mail de contato do juiz."
+      },
+      "telefone": {
+        "label": "Telefone",
+        "type": "inputText",
+        "masks": [
+          "(##) ####-####",
+          "(##) #####-####"
+        ],
+        "help": "Informe o número de telefone de contato do juiz."
+      },
+      "observacoes": {
+        "label": "Observações",
+        "type": "inputText",
+        "help": "Adicione observações adicionais sobre o juiz, se necessário."
+      }
+    }
+  },
+  {
+    "name": "advogados",
+    "info": {
+      "displayName": "Advogados",
+      "singularName": "Advogado",
+      "pluralName": "Advogados",
+      "displayExpression": "{{data.nome}} ({{data.oab}})",
+      "description": "Cadastro e gestão dos advogados e profissionais de direito que atuam nos processos jurídicos.",
+      "icon": "heroicons:academic-cap"
+    },
+    "attributes": {
+      "nome": {
+        "label": "Nome",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Insira o nome completo do advogado. Este campo é obrigatório."
+      },
+      "email": {
+        "label": "E-mail",
+        "type": "inputText",
+        "validation": "email",
+        "help": "Informe o endereço de e-mail de contato do advogado."
+      },
+      "telefone": {
+        "label": "Telefone",
+        "type": "inputText",
+        "masks": [
+          "(##) ####-####",
+          "(##) #####-####"
+        ],
+        "help": "Informe o número de telefone de contato do advogado."
+      },
+      "oab": {
+        "label": "OAB",
+        "type": "inputText",
+        "validation": "required",
+        "help": "Insira o número de registro na Ordem dos Advogados do Brasil (OAB). Este campo é obrigatório."
+      },
+      "observacoes": {
+        "label": "Observações",
+        "type": "inputText",
+        "help": "Adicione observações adicionais sobre o advogado, se necessário."
+      },
+      "processos": {
+        "label": "Processo",
+        "type": "EnRelMulti",
+        "relation": "oneToMany",
+        "target": "models:processos",
+        "help": "Liste os processos associados a este advogado."
       }
     }
   },
@@ -372,6 +442,7 @@
       "displayName": "Partes",
       "singularName": "Parte",
       "pluralName": "Partes",
+      "displayExpression": "{{data.nome}} ({{data.tipo}})",
       "description": "Registro das partes envolvidas nos processos, como autores, réus, e terceiros.",
       "icon": "ion:ios-people"
     },
@@ -476,18 +547,19 @@
         "validation": "required",
         "help": "Informe a data em que o andamento foi registrado. Este campo é obrigatório."
       },
-      "descricao": {
-        "label": "Descrição",
-        "type": "inputText",
-        "validation": "required",
-        "help": "Descreva o andamento processual de forma clara e concisa. Este campo é obrigatório."
-      },
       "processo": {
         "label": "Processo",
         "type": "EnRel",
         "relation": "oneToOne",
         "target": "models:processos",
         "help": "Selecione o processo ao qual este andamento está relacionado."
+      },
+      "descricao": {
+        "label": "Descrição",
+        "type": "EnHtml",
+        "validation": "required",
+        "width": "12/12",
+        "help": "Descreva o andamento processual de forma clara e concisa. Este campo é obrigatório."
       }
     }
   },
@@ -601,8 +673,8 @@
         "label": "Responsáveis",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "enspace:members",
-        "help": "Selecione os membros responsáveis pelo evento."
+        "target": "models:advogados",
+        "help": "Selecione os advogados responsáveis pelo evento."
       },
       "data_interna": {
         "label": "Interna",
@@ -733,7 +805,7 @@
         "label": "Responsáveis",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "enspace:members",
+        "target": "models:advogados",
         "width": "3/12",
         "help": "Liste os membros responsáveis pela execução do projeto."
       },
@@ -897,7 +969,7 @@
         "label": "Responsáveis",
         "type": "EnRelMulti",
         "relation": "oneToMany",
-        "target": "enspace:members",
+        "target": "models:advogados",
         "help": "Lista dos membros responsáveis por este contrato."
       },
       "agenda": {
