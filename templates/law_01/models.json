@@ -20,7 +20,7 @@
           "Exemplo_2"
         ],
         "section": "Principal",
-        "width": "3/12",
+        "width": "6",
         "help": "Selecione o tipo de processo (Judicial, Extrajudicial ou outro exemplo)."
       },
       "titulo": {
@@ -464,7 +464,7 @@
           "(##) ####-####",
           "(##) #####-####"
         ],
-        "width": "12/12",
+        "width": "12",
         "help": "Informe o número de telefone de contato da parte."
       },
       "endereco": {
@@ -1072,7 +1072,7 @@
           "(##) ####-####",
           "(##) #####-####"
         ],
-        "width": "12/12",
+        "width": "12",
         "help": "Informe o número de telefone de contato do advogado."
       },
       "oab": {
@@ -1081,19 +1081,19 @@
         "validation": [
           "required"
         ],
-        "width": "12/12",
+        "width": "12",
         "help": "Insira o número de registro na Ordem dos Advogados do Brasil (OAB). Este campo é obrigatório."
       },
       "observacoes": {
         "type": "inputText",
         "label": "Observações",
-        "width": "12/12",
+        "width": "12",
         "help": "Adicione observações adicionais sobre o advogado, se necessário."
       },
       "processos": {
         "type": "EnRelMulti",
         "label": "Processo",
-        "width": "12/12",
+        "width": "12",
         "help": "Liste os processos associados a este advogado.",
         "target": "models:processos"
       }
