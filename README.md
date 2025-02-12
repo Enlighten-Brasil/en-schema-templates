@@ -56,7 +56,7 @@ O schema JSON é composto por diferentes entidades, cada uma representada como u
   - **`validation`**: Regras de validação aplicadas ao campo (e.g., obrigatório, valor único).
   - **`options`**: Lista de opções disponíveis para campos do tipo dropdown.
   - **`section`**: Seção do formulário onde o campo será exibido.
-  - **`width`**: Largura do campo no layout do formulário, definida em frações (e.g., "2/12").
+  - **`width`**: Largura do campo no layout do formulário, definida em frações de 12 (e.g., "6", "12").
 
 - **Exemplo:**
   ```json
@@ -66,14 +66,14 @@ O schema JSON é composto por diferentes entidades, cada uma representada como u
       "type": "EnlDropdown",
       "options": ["Judicial", "Extrajudicial"],
       "section": "Principal",
-      "width": "2/12"
+      "width": "6"
     },
     "titulo": {
       "label": "Título",
       "type": "inputText",
       "validation": "required",
       "section": "Principal",
-      "width": "5/12"
+      "width": "6"
     }
   }
   ```
@@ -96,7 +96,7 @@ O schema JSON é composto por diferentes entidades, cada uma representada como u
     "type": "inputText",
     "validation": "required",
     "section": "Principal",
-    "width": "5/12"
+    "width": "12"
   }
   ```
 
@@ -114,7 +114,7 @@ O schema JSON é composto por diferentes entidades, cada uma representada como u
     "type": "EnlDropdown",
     "options": ["Judicial", "Extrajudicial"],
     "section": "Principal",
-    "width": "2/12"
+    "width": "12"
   }
   ```
 
@@ -148,7 +148,7 @@ O schema JSON é composto por diferentes entidades, cada uma representada como u
     "relation": "oneToOne",
     "target": "models:clientes",
     "section": "Principal",
-    "width": "4/12"
+    "width": "12"
   }
   ```
 
@@ -171,7 +171,7 @@ O schema JSON é composto por diferentes entidades, cada uma representada como u
 
 - **Seções (`section`)**: Os campos são agrupados em seções para facilitar a organização visual e o preenchimento do formulário. Exemplos incluem `Principal`, `Partes`, `Andamentos`, etc.
   
-- **Layout e Distribuição de Campos (`width`)**: Define a largura de cada campo no formulário, utilizando frações de 12 como padrão (e.g., "2/12" para ocupar 2 de 12 colunas).
+- **Layout e Distribuição de Campos (`width`)**: Define a largura de cada campo no formulário, utilizando frações de 12 como padrão (e.g., "6" para metade da largura, "12" para largura total).
 
 ---
 
