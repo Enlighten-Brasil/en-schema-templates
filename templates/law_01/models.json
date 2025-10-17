@@ -677,7 +677,7 @@
         "help": "Adicione uma descrição breve sobre o documento."
       },
       "documento": {
-        "type": "EnlFile",
+        "type": "uploadFile",
         "label": "Documento",
         "validation": [
           "required"
